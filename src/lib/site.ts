@@ -90,7 +90,7 @@ export type GalleryItem = {
 export const galleryItems: GalleryItem[] = [
   { id: 1,  category: "Acrylic",     ratio: "portrait",  alt: "Sculpted acrylic set" },
   { id: 2,  category: "Nail Art",    ratio: "tall",      alt: "Abstract hand-drawn nail art" },
-  { id: 3,  category: "Gel",         ratio: "square",    ratio: "square", alt: "Glossy gel manicure" as string } as never,
+  { id: 3,  category: "Gel",         ratio: "square",    alt: "Glossy gel manicure" },
   { id: 4,  category: "French Tips", ratio: "portrait",  alt: "Modern French tip manicure" },
   { id: 5,  category: "Pedicure",    ratio: "landscape", alt: "Spa pedicure finish" },
   { id: 6,  category: "Acrylic",     ratio: "square",    alt: "Almond-shape acrylic set" },
