@@ -1,0 +1,74 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { SectionHeading } from "@/components/site/SectionHeading";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
+import { Reveal } from "@/components/site/Reveal";
+import { LinkButton } from "@/components/site/Button";
+import { site } from "@/lib/site";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About — Luxe Nail Studio · Ikeja, Lagos" },
+      { name: "description", content: "The story behind Luxe Nail Studio — a considered atelier in Ikeja, Lagos built around craft, hygiene and calm." },
+      { property: "og:title", content: "About — Luxe Nail Studio" },
+      { property: "og:description", content: "A considered nail atelier in Ikeja, Lagos built around craft, hygiene and calm." },
+      { property: "og:url", content: "/about" },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+  }),
+  component: AboutPage,
+});
+
+function AboutPage() {
+  return (
+    <SiteLayout>
+      <section className="mx-auto max-w-[1400px] px-6 md:px-10 pt-10 md:pt-20 pb-24 md:pb-32">
+        <div className="fade-up max-w-3xl">
+          <span className="eyebrow">About the Studio</span>
+          <span className="gold-rule mt-4 mb-7 block" aria-hidden="true" />
+          <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] text-ink">
+            Nail care, elevated to a<br /><em className="not-italic font-light text-espresso">quiet ritual.</em>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            {site.brand} is a small, appointment-only studio in {site.city}. Everything about the space —
+            from the lighting to the tools to the pace — was built to make a nail appointment feel like an hour
+            of considered calm.
+          </p>
+        </div>
+
+        <Reveal className="mt-16 md:mt-24">
+          <ImagePlaceholder alt="Wide shot of the studio interior" label="Studio Wide · 16:9" aspect="landscape" className="!aspect-[16/9]" />
+        </Reveal>
+
+        <div className="mt-24 grid gap-14 md:grid-cols-2 md:gap-24">
+          {[
+            { t: "Craft", b: "Every set is placed by a trained specialist with a discerning eye for shape, proportion and finish. We work slowly on purpose." },
+            { t: "Hygiene", b: "Hospital-grade sterilisation, single-use consumables and fresh, sealed implements for every guest — without exception." },
+            { t: "Product", b: "We source only globally trusted gels, builders and finishes. No compromises on the brands we bring to your fingers." },
+            { t: "Comfort", b: "Private stations, calm music and a slow, unhurried pace. You leave feeling looked after — not just polished." },
+          ].map((v, i) => (
+            <Reveal key={v.t} delay={i * 80}>
+              <div>
+                <span className="eyebrow">Principle 0{i + 1}</span>
+                <h3 className="mt-4 font-display text-3xl text-ink">{v.t}</h3>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{v.b}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="hairline mt-24" aria-hidden="true" />
+
+        <Reveal className="mt-24 text-center max-w-2xl mx-auto">
+          <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink">Ready when you are.</h2>
+          <p className="mt-5 text-muted-foreground">Reserve your seat in a few taps.</p>
+          <div className="mt-8 flex justify-center gap-4">
+            <LinkButton to="/book">Book Appointment</LinkButton>
+            <LinkButton to="/services" variant="outline">View Services</LinkButton>
+          </div>
+        </Reveal>
+      </section>
+    </SiteLayout>
+  );
+}
