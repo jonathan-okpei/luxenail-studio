@@ -79,15 +79,27 @@ export const faqs = [
   { q: "Where are you located?", a: "Our studio is in Ikeja, Lagos Mainland. Full address and directions are on the Contact page." },
 ];
 
-export const galleryItems = [
-  { id: 1, category: "Acrylic",     src: "user-uploads://1e05ca1209d43c00a8cc6e34e4259b90.jpg", ratio: "portrait" as const, alt: "Chrome and tortoiseshell acrylic set" },
-  { id: 2, category: "Nail Art",    src: "user-uploads://39d1db8962791c38a6ba364ed739d208.jpg", ratio: "portrait" as const, alt: "Almond nails with abstract line art" },
-  { id: 3, category: "Acrylic",     src: "user-uploads://51f8ed77bd09cef3c34545d338250fd4.jpg", ratio: "portrait" as const, alt: "Matte mauve acrylics with 3D droplet detail" },
-  { id: 4, category: "Pedicure",    src: "user-uploads://13640c71d17eddeffe693802847f0349.jpg", ratio: "portrait" as const, alt: "Red pedicure with floral nail art" },
-  { id: 5, category: "Gel",         src: "user-uploads://25155b5b96e958bef1e3284577418859.jpg", ratio: "portrait" as const, alt: "Matte teal gel with 3D droplet detail" },
-  { id: 6, category: "French Tips", src: "user-uploads://74243338fb71b9908eaeec6377932277.jpg", ratio: "portrait" as const, alt: "Sheer French tip manicure and pedicure" },
-  { id: 7, category: "Pedicure",    src: "user-uploads://3601cb8b91b7a2e0bbc25f0d403eef43.jpg", ratio: "portrait" as const, alt: "French pedicure with Hermès-style sandals" },
-  { id: 8, category: "Gel",         src: "user-uploads://107d63847895b36e06d0c571483f7e00.jpg", ratio: "portrait" as const, alt: "Deep burgundy almond gel manicure" },
+export type GalleryItem = {
+  id: number;
+  category: "Acrylic" | "Gel" | "Nail Art" | "Pedicure" | "French Tips";
+  ratio: "portrait" | "square" | "landscape" | "tall";
+  alt: string;
+  src?: string; // Replace placeholder by adding a src (imported image or URL).
+};
+
+export const galleryItems: GalleryItem[] = [
+  { id: 1,  category: "Acrylic",     ratio: "portrait",  alt: "Sculpted acrylic set" },
+  { id: 2,  category: "Nail Art",    ratio: "tall",      alt: "Abstract hand-drawn nail art" },
+  { id: 3,  category: "Gel",         ratio: "square",    ratio: "square", alt: "Glossy gel manicure" as string } as never,
+  { id: 4,  category: "French Tips", ratio: "portrait",  alt: "Modern French tip manicure" },
+  { id: 5,  category: "Pedicure",    ratio: "landscape", alt: "Spa pedicure finish" },
+  { id: 6,  category: "Acrylic",     ratio: "square",    alt: "Almond-shape acrylic set" },
+  { id: 7,  category: "Gel",         ratio: "tall",      alt: "Long-wear gel colour" },
+  { id: 8,  category: "Nail Art",    ratio: "portrait",  alt: "Chrome accent nail art" },
+  { id: 9,  category: "French Tips", ratio: "square",    alt: "Sheer French tips" },
+  { id: 10, category: "Pedicure",    ratio: "portrait",  alt: "Classic pedicure" },
+  { id: 11, category: "Acrylic",     ratio: "landscape", alt: "Bridal acrylic set" },
+  { id: 12, category: "Gel",         ratio: "portrait",  alt: "Neutral gel manicure" },
 ];
 
 export const galleryCategories = ["All", "Acrylic", "Gel", "Nail Art", "Pedicure", "French Tips"] as const;
