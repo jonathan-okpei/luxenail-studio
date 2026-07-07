@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
-import { services, reasons, testimonials, faqs, site } from "@/lib/site";
-import { ArrowUpRight, Star } from "lucide-react";
+import { services, reasons, testimonials, faqs, site, owner, photos } from "@/lib/site";
+import { ArrowUpRight, Star, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,55 +17,88 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-6 pb-16 pt-8 md:grid-cols-[1.05fr_1fr] md:gap-16 md:px-10 md:pb-28 md:pt-14">
-          <div className="fade-up">
-            <span className="eyebrow">Nail Salon · Ikeja, Lagos</span>
-            <span className="gold-rule mt-4 mb-7 block" aria-hidden="true" />
-            <h1 className="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] tracking-[-0.015em] text-ink">
-              Luxury Nail Care,<br />
-              <em className="not-italic font-light text-espresso">Designed Around You.</em>
-            </h1>
-            <p className="mt-7 max-w-lg text-base leading-relaxed text-muted-foreground">
-              Premium manicures, pedicures and nail artistry in Ikeja, Lagos. Experience flawless beauty in a calm, elegant studio.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <LinkButton to="/book">Book Appointment</LinkButton>
-              <LinkButton to="/gallery" variant="outline">View Gallery</LinkButton>
-            </div>
+      <section className="relative overflow-hidden grad-bloom">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-multiply"
+          aria-hidden="true"
+          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, oklch(0.7 0.15 320 / 0.35) 1px, transparent 0)", backgroundSize: "22px 22px" }}
+        />
+        <div className="relative mx-auto max-w-[1400px] px-6 pt-10 pb-24 md:px-10 md:pt-16 md:pb-36">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10">
+            <div className="fade-up md:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-white/60 backdrop-blur px-4 py-1.5 text-[0.68rem] tracking-[0.22em] uppercase text-espresso">
+                <Sparkles size={12} className="text-champagne" />
+                Now booking · Ikeja, Lagos
+              </span>
+              <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.92] tracking-[-0.02em]">
+                <span className="text-ink">Nails that feel</span><br />
+                <span className="text-gradient italic">unmistakably</span><br />
+                <span className="text-ink">yours.</span>
+              </h1>
+              <p className="mt-8 max-w-lg text-base leading-relaxed text-espresso/75">
+                A soft, considered nail atelier for the modern woman. Meticulous artistry,
+                premium products, and an hour of quiet luxury in the heart of Ikeja.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <LinkButton to="/book">Book Appointment</LinkButton>
+                <LinkButton to="/gallery" variant="outline">View the Gallery</LinkButton>
+              </div>
 
-            <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
-              {[
-                { k: "5.0", l: "Guest rating" },
-                { k: "3 wk+", l: "Wear time" },
-                { k: "100%", l: "Sterilised" },
-              ].map((s) => (
-                <div key={s.l}>
-                  <p className="font-display text-3xl text-ink">{s.k}</p>
-                  <p className="mt-1 text-[0.7rem] tracking-[0.18em] uppercase text-muted-foreground">{s.l}</p>
+              <div className="mt-14 flex items-center gap-8">
+                <div className="flex -space-x-3">
+                  {[photos.img1, photos.img4, photos.img5].map((s, i) => (
+                    <div key={i} className="h-11 w-11 rounded-full ring-2 ring-ivory overflow-hidden bg-porcelain">
+                      <img src={s} alt="" className="h-full w-full object-cover" />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <Reveal delay={200}>
-            <div className="relative">
-              <ImagePlaceholder
-                alt="Signature manicure at Luxe Nail Studio"
-                label="Hero Photograph · 3:4"
-                aspect="hero"
-                eager
-                className="rounded-md"
-              />
-              <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-4 rounded-md border border-border/70 bg-ivory/90 backdrop-blur-md px-5 py-4 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.25)]">
-                <div className="h-10 w-[1px] bg-champagne" aria-hidden="true" />
                 <div>
-                  <p className="font-display text-lg text-ink leading-tight">Book in under a minute</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Confirmed instantly. Reminders included.</p>
+                  <div className="flex items-center gap-1 text-champagne">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
+                    ))}
+                    <span className="ml-2 text-xs text-espresso/70">5.0 · 200+ happy guests</span>
+                  </div>
+                  <p className="mt-1 text-xs text-espresso/60">Rated the softest chair in Ikeja.</p>
                 </div>
               </div>
             </div>
-          </Reveal>
+
+            <div className="md:col-span-5 relative min-h-[520px] md:min-h-[640px]">
+              {/* Main image */}
+              <div className="absolute right-0 top-0 w-[78%] aspect-[3/4] overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-30px_oklch(0.5_0.15_320/0.35)] rotate-[2deg]">
+                <img src={photos.img1} alt="Signature glossy gel manicure" className="h-full w-full object-cover" />
+              </div>
+              {/* Overlapping image */}
+              <div className="absolute left-0 bottom-6 w-[58%] aspect-[3/4] overflow-hidden rounded-[2rem] ring-8 ring-ivory shadow-[0_30px_60px_-25px_oklch(0.55_0.14_300/0.4)] floaty">
+                <img src={photos.img3} alt="Chrome accent luxury acrylic set" className="h-full w-full object-cover" />
+              </div>
+              {/* Sticker card */}
+              <div className="absolute -right-2 bottom-8 md:right-6 md:bottom-2 rounded-2xl border border-champagne/30 bg-white/85 backdrop-blur-md px-4 py-3 shadow-[0_20px_50px_-25px_oklch(0.5_0.15_320/0.4)]">
+                <p className="text-[0.62rem] tracking-[0.22em] uppercase text-lavender-deep">Guest favourite</p>
+                <p className="font-display text-lg text-ink leading-tight mt-0.5">BIAB · from ₦18k</p>
+              </div>
+              {/* Blob */}
+              <div className="absolute -left-6 top-4 h-24 w-24 rounded-full bg-lavender/60 blur-2xl" aria-hidden="true" />
+              <div className="absolute right-10 -bottom-4 h-32 w-32 rounded-full bg-champagne/40 blur-3xl" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+
+        {/* Marquee ribbon */}
+        <div className="relative border-y border-border/60 bg-white/50 backdrop-blur-sm overflow-hidden">
+          <div className="flex marquee whitespace-nowrap py-4">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <div key={k} className="flex items-center gap-10 pr-10 shrink-0">
+                {["Gel Manicures", "Acrylic Extensions", "BIAB Overlay", "Bridal Nails", "Custom Nail Art", "Spa Pedicures", "French Tips", "Chrome Finish"].map((t) => (
+                  <span key={t} className="flex items-center gap-10 font-display text-2xl md:text-3xl text-ink/70 italic">
+                    {t}
+                    <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -74,7 +106,14 @@ function HomePage() {
       <section className="border-t border-border/60">
         <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-24 md:grid-cols-12 md:gap-16 md:px-10 md:py-32">
           <Reveal className="md:col-span-5">
-            <ImagePlaceholder alt="Interior of Luxe Nail Studio" label="Studio Interior · 4:5" aspect="hero" />
+            <div className="relative">
+              <div className="aspect-[4/5] overflow-hidden rounded-[2rem]">
+                <img src={photos.img5} alt="Modern French tip manicure" className="h-full w-full object-cover" />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-1/2 aspect-square overflow-hidden rounded-[1.5rem] ring-8 ring-ivory hidden md:block">
+                <img src={photos.img7} alt="Long-wear gel colour" className="h-full w-full object-cover" />
+              </div>
+            </div>
           </Reveal>
           <Reveal delay={120} className="md:col-span-7 md:pl-8">
             <SectionHeading
@@ -110,36 +149,79 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES ────────────────────────────────────── */}
-      <section id="services" className="border-t border-border/60 bg-porcelain/40">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+      {/* ── TREATMENTS ───────────────────────────────────── */}
+      <section id="treatments" className="relative border-t border-border/60 bg-porcelain/60 overflow-hidden">
+        <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-lavender/40 blur-[100px]" aria-hidden="true" />
+        <div className="absolute bottom-10 left-0 h-72 w-72 rounded-full bg-champagne/30 blur-[100px]" aria-hidden="true" />
+        <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <SectionHeading
-              eyebrow="Services"
-              title={<>The full menu, without<br />the noise.</>}
+              eyebrow="The Treatments"
+              title={<>Signature rituals,<br />crafted for you.</>}
             />
             <Link to="/services" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity self-start md:self-end">
-              View full menu <ArrowUpRight size={16} strokeWidth={1.25} />
+              Explore all treatments <ArrowUpRight size={16} strokeWidth={1.25} />
             </Link>
           </div>
 
-          <div className="mt-14 grid gap-x-10 gap-y-4 md:grid-cols-2">
-            {services.slice(0, 8).map((s, i) => (
-              <Reveal key={s.name} delay={i * 40}>
-                <article className="group grid grid-cols-[1fr_auto] items-baseline gap-6 border-b border-border/60 py-6">
-                  <div>
-                    <h3 className="font-display text-2xl text-ink group-hover:text-espresso transition-colors">{s.name}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-md">{s.description}</p>
-                    <p className="mt-3 text-[0.7rem] tracking-[0.2em] uppercase text-muted-foreground">{s.duration}</p>
-                  </div>
-                  <p className="font-display text-xl text-ink whitespace-nowrap">
-                    <span className="text-[0.62rem] tracking-[0.2em] uppercase text-muted-foreground mr-2 align-middle">From</span>
-                    {s.from}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 6).map((s, i) => {
+              const imgs = [photos.img1, photos.img3, photos.img5, photos.img6, photos.img4, photos.img2];
+              return (
+                <Reveal key={s.name} delay={i * 60}>
+                  <article className="group relative h-full flex flex-col overflow-hidden rounded-[1.75rem] border border-border/60 bg-white/70 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_oklch(0.5_0.15_320/0.4)] hover:border-champagne/50">
+                    <div className="relative aspect-[5/4] overflow-hidden">
+                      <img src={imgs[i]} alt={s.name} className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+                      <span className="absolute top-4 left-4 rounded-full bg-white/90 backdrop-blur px-3 py-1 text-[0.6rem] tracking-[0.22em] uppercase text-lavender-deep">{s.category}</span>
+                    </div>
+                    <div className="flex-1 flex flex-col p-6">
+                      <h3 className="font-display text-2xl text-ink">{s.name}</h3>
+                      <p className="mt-2 text-sm text-espresso/70 leading-relaxed flex-1">{s.description}</p>
+                      <div className="mt-5 flex items-baseline justify-between border-t border-border/60 pt-4">
+                        <span className="text-[0.65rem] tracking-[0.22em] uppercase text-espresso/60">{s.duration}</span>
+                        <span className="font-display text-lg text-ink">
+                          <span className="text-[0.6rem] tracking-[0.22em] uppercase text-espresso/60 mr-1.5">From</span>
+                          {s.from}
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
+        </div>
+      </section>
+
+      {/* ── OWNER / FOUNDER ──────────────────────────────── */}
+      <section className="border-t border-border/60 overflow-hidden">
+        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-24 md:grid-cols-12 md:gap-16 md:px-10 md:py-32">
+          <Reveal className="md:col-span-5">
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-champagne/30 via-lavender/30 to-transparent blur-2xl" aria-hidden="true" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-champagne/20 shadow-[0_40px_80px_-30px_oklch(0.5_0.15_320/0.4)]">
+                <img src={owner.image} alt={`${owner.name}, founder of ${site.brand}`} className="h-full w-full object-cover" />
+              </div>
+              <div className="absolute -bottom-5 -left-5 rounded-2xl bg-ink text-ivory px-5 py-4 shadow-xl max-w-[200px]">
+                <p className="text-[0.6rem] tracking-[0.22em] uppercase text-champagne">Founder</p>
+                <p className="font-display text-xl mt-1 leading-tight">{owner.name}</p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={120} className="md:col-span-7 md:pl-10 flex flex-col justify-center">
+            <span className="eyebrow">Meet the Founder</span>
+            <span className="gold-rule mt-4 mb-6 block" aria-hidden="true" />
+            <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] text-ink">
+              A studio built by a woman <em className="not-italic text-gradient">who gets it.</em>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">{owner.bio}</p>
+            <p className="mt-6 max-w-xl leading-relaxed text-espresso/70">
+              I built Luxe Nail Studio as the salon I always wished existed — clean, calm, and unapologetically feminine.
+              Whether you're prepping for your wedding day or simply need an hour to yourself, my team and I are here
+              to make it feel like a treat.
+            </p>
+            <p className="mt-8 font-display italic text-2xl text-lavender-deep">{owner.signature}</p>
+          </Reveal>
         </div>
       </section>
 
@@ -176,13 +258,17 @@ function HomePage() {
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { a: "tall" as const, l: "Acrylic" },
-              { a: "portrait" as const, l: "Gel" },
-              { a: "portrait" as const, l: "Nail Art" },
-              { a: "tall" as const, l: "French Tips" },
+              { src: photos.img6, l: "Acrylic" },
+              { src: photos.img4, l: "Nail Art" },
+              { src: photos.img7, l: "Gel" },
+              { src: photos.img2, l: "Pedicure" },
             ].map((g, i) => (
               <Reveal key={i} delay={i * 60}>
-                <ImagePlaceholder alt={`${g.l} portfolio photograph`} label={g.l} aspect={g.a} />
+                <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
+                  <img src={g.src} alt={`${g.l} portfolio photograph`} className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.05]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[0.65rem] tracking-[0.22em] uppercase text-ivory opacity-0 group-hover:opacity-100 transition-opacity duration-500">{g.l}</span>
+                </div>
               </Reveal>
             ))}
           </div>

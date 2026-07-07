@@ -49,10 +49,10 @@ function ServicesPage() {
     <SiteLayout>
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 pt-10 md:pt-20 pb-16 md:pb-24">
         <div className="fade-up max-w-3xl">
-          <span className="eyebrow">The Menu</span>
+          <span className="eyebrow">The Treatments</span>
           <span className="gold-rule mt-4 mb-7 block" aria-hidden="true" />
           <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] text-ink">
-            Services &amp; pricing.
+            Treatments &amp; pricing.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
             A considered menu of manicures, pedicures, extensions and nail artistry. All prices are starting rates — final pricing depends on length, complexity and finish.

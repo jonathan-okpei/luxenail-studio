@@ -1,4 +1,23 @@
 // Central brand + content configuration. Edit here to rebrand the site.
+import img1 from "@/assets/gallery/107d63847895b36e06d0c571483f7e00.jpg";
+import img2 from "@/assets/gallery/13640c71d17eddeffe693802847f0349.jpg";
+import img3 from "@/assets/gallery/1e05ca1209d43c00a8cc6e34e4259b90.jpg";
+import img4 from "@/assets/gallery/25155b5b96e958bef1e3284577418859.jpg";
+import img5 from "@/assets/gallery/3601cb8b91b7a2e0bbc25f0d403eef43.jpg";
+import img6 from "@/assets/gallery/39d1db8962791c38a6ba364ed739d208.jpg";
+import img7 from "@/assets/gallery/51f8ed77bd09cef3c34545d338250fd4.jpg";
+import img8 from "@/assets/gallery/74243338fb71b9908eaeec6377932277.jpg";
+import ownerImg from "@/assets/owner.jpg";
+
+export const photos = { img1, img2, img3, img4, img5, img6, img7, img8, owner: ownerImg };
+
+export const owner = {
+  name: "Amara Johnson",
+  role: "Founder & Lead Nail Artist",
+  image: ownerImg,
+  bio: "For over a decade, I've been obsessed with the quiet ritual of a perfect manicure. Luxe Nail Studio is my love letter to the modern woman — a soft, considered space in Ikeja where every guest is treated like the main character.",
+  signature: "— Amara",
+};
 export const site = {
   brand: "Luxe Nail Studio",
   short: "Luxe",
@@ -21,7 +40,7 @@ export const site = {
 export const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
+  { to: "/services", label: "Treatments" },
   { to: "/gallery", label: "Gallery" },
   { to: "/book", label: "Book" },
   { to: "/contact", label: "Contact" },
@@ -88,18 +107,18 @@ export type GalleryItem = {
 };
 
 export const galleryItems: GalleryItem[] = [
-  { id: 1,  category: "Acrylic",     ratio: "portrait",  alt: "Sculpted acrylic set" },
-  { id: 2,  category: "Nail Art",    ratio: "tall",      alt: "Abstract hand-drawn nail art" },
-  { id: 3,  category: "Gel",         ratio: "square",    alt: "Glossy gel manicure" },
-  { id: 4,  category: "French Tips", ratio: "portrait",  alt: "Modern French tip manicure" },
-  { id: 5,  category: "Pedicure",    ratio: "landscape", alt: "Spa pedicure finish" },
-  { id: 6,  category: "Acrylic",     ratio: "square",    alt: "Almond-shape acrylic set" },
-  { id: 7,  category: "Gel",         ratio: "tall",      alt: "Long-wear gel colour" },
-  { id: 8,  category: "Nail Art",    ratio: "portrait",  alt: "Chrome accent nail art" },
-  { id: 9,  category: "French Tips", ratio: "square",    alt: "Sheer French tips" },
-  { id: 10, category: "Pedicure",    ratio: "portrait",  alt: "Classic pedicure" },
-  { id: 11, category: "Acrylic",     ratio: "landscape", alt: "Bridal acrylic set" },
-  { id: 12, category: "Gel",         ratio: "portrait",  alt: "Neutral gel manicure" },
+  { id: 1,  category: "Gel",         ratio: "portrait",  alt: "Glossy burgundy almond gel manicure", src: img1 },
+  { id: 2,  category: "Pedicure",    ratio: "portrait",  alt: "Red pedicure with delicate floral art", src: img2 },
+  { id: 3,  category: "Acrylic",     ratio: "tall",      alt: "Chrome copper and tortoise acrylic set", src: img3 },
+  { id: 4,  category: "Nail Art",    ratio: "portrait",  alt: "Custom hand-painted nail art", src: img4 },
+  { id: 5,  category: "French Tips", ratio: "portrait",  alt: "Modern French tip manicure", src: img5 },
+  { id: 6,  category: "Acrylic",     ratio: "portrait",  alt: "Sculpted almond acrylic set", src: img6 },
+  { id: 7,  category: "Gel",         ratio: "tall",      alt: "Long-wear gel colour", src: img7 },
+  { id: 8,  category: "Nail Art",    ratio: "portrait",  alt: "Bespoke nail artistry", src: img8 },
+  { id: 9,  category: "Gel",         ratio: "portrait",  alt: "Signature gel manicure", src: img1 },
+  { id: 10, category: "Pedicure",    ratio: "portrait",  alt: "Red floral pedicure detail", src: img2 },
+  { id: 11, category: "Acrylic",     ratio: "portrait",  alt: "Chrome accent nail set", src: img3 },
+  { id: 12, category: "French Tips", ratio: "portrait",  alt: "Sheer French tips", src: img5 },
 ];
 
 export const galleryCategories = ["All", "Acrylic", "Gel", "Nail Art", "Pedicure", "French Tips"] as const;

@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
-import { site } from "@/lib/site";
+import { site, photos, owner } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -38,8 +37,25 @@ function AboutPage() {
         </div>
 
         <Reveal className="mt-16 md:mt-24">
-          <ImagePlaceholder alt="Wide shot of the studio interior" label="Studio Wide · 16:9" aspect="landscape" className="!aspect-[16/9]" />
+          <div className="aspect-[16/9] overflow-hidden rounded-[2rem]">
+            <img src={photos.img3} alt="Bespoke chrome and tortoise acrylic set" className="h-full w-full object-cover" />
+          </div>
         </Reveal>
+
+        <div className="mt-24 grid gap-12 md:grid-cols-12 md:gap-16 items-center">
+          <Reveal className="md:col-span-5">
+            <div className="aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-champagne/20">
+              <img src={owner.image} alt={owner.name} className="h-full w-full object-cover" />
+            </div>
+          </Reveal>
+          <Reveal delay={120} className="md:col-span-7">
+            <span className="eyebrow">The Founder</span>
+            <h2 className="mt-4 font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink">{owner.name}</h2>
+            <p className="mt-2 text-sm tracking-[0.18em] uppercase text-lavender-deep">{owner.role}</p>
+            <p className="mt-6 text-lg leading-relaxed text-espresso/80">{owner.bio}</p>
+            <p className="mt-6 font-display italic text-2xl text-lavender-deep">{owner.signature}</p>
+          </Reveal>
+        </div>
 
         <div className="mt-24 grid gap-14 md:grid-cols-2 md:gap-24">
           {[
