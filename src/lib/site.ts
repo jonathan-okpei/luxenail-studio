@@ -30,9 +30,9 @@ export const site = {
   instagram: "@luxenailstudio",
   instagramUrl: "https://instagram.com/",
   hours: [
-    { day: "Monday – Friday", time: "9:00 AM – 8:00 PM" },
-    { day: "Saturday", time: "9:00 AM – 9:00 PM" },
-    { day: "Sunday", time: "11:00 AM – 6:00 PM" },
+    { day: "Monday", time: "Closed" },
+    { day: "Tuesday – Saturday", time: "9:00 AM – 5:00 PM" },
+    { day: "Sunday", time: "10:00 AM – 4:00 PM" },
   ],
   calendlyUrl: "https://calendly.com/jonathanokpei1/30min",
 } as const;
@@ -42,7 +42,6 @@ export const nav = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Treatments" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/book", label: "Book" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -81,12 +80,12 @@ export const reasons = [
 ];
 
 export const testimonials = [
-  { name: "Adaeze", rating: 5, review: "The most refined nail experience in Lagos. Every detail feels intentional — the space, the products, the finish. I wouldn't go anywhere else." },
-  { name: "Chidera", rating: 5, review: "Three weeks in and my set still looks fresh. The technician listened, sketched, and delivered exactly what I wanted." },
-  { name: "Fola", rating: 5, review: "A rare kind of quiet luxury. Impeccable hygiene, beautiful work, and genuinely warm service." },
-  { name: "Zainab", rating: 5, review: "I booked for my wedding and every step — from the trial to the day-of — was flawless. Truly bridal-grade attention." },
-  { name: "Ifeoma", rating: 5, review: "I have sensitive nails and they took the time to prep and protect. My natural nails have never looked better." },
-  { name: "Temi", rating: 5, review: "It's more than a manicure — it's an hour of calm. I leave feeling looked after every single time." },
+  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "I sent my inspo pic the night before and walked in to find they'd already practised the design. That's a first for me in Lagos — pure luxury." },
+  { name: "Ngozi Okafor", handle: "@ngozi.ok", rating: 5, review: "Three full weeks and not a single lift. The finish is glassy, the shape is perfect and the studio itself feels like a spa retreat." },
+  { name: "Halima Bello", handle: "@halima_b", rating: 5, review: "Bridal appointment: trial, tweak, wedding-day set — every touchpoint felt considered. My hands in every photo look unreal." },
+  { name: "Yewande Cole", handle: "@yewandecole", rating: 5, review: "I'm precious about hygiene. Watching them unwrap sealed tools in front of me sold me for life. Talent + trust." },
+  { name: "Priscilla Nnamdi", handle: "@priss.n", rating: 5, review: "The chairs, the lighting, the tea — every detail is soft. I book my sessions like therapy now." },
+  { name: "Kemi Sofowora", handle: "@kemi.sof", rating: 5, review: "They actually listened when I said 'shorter, milkier, no bling'. Left with the exact set I'd been failing to describe for years." },
 ];
 
 export const faqs = [

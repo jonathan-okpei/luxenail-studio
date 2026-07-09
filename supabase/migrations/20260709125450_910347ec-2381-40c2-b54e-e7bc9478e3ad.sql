@@ -1,0 +1,2 @@
+CREATE POLICY "Anyone can upload nail inspo" ON storage.objects FOR INSERT TO anon, authenticated WITH CHECK (bucket_id = 'nail-inspo');
+CREATE POLICY "Anyone can read nail inspo" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'nail-inspo');

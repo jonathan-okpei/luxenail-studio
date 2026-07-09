@@ -3,8 +3,9 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
+import { BookButton } from "@/components/site/BookButton";
+import { InspoUpload } from "@/components/site/InspoUpload";
 import { services, reasons, testimonials, faqs, site, owner, photos } from "@/lib/site";
-import { ArrowUpRight, Star, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,7 +28,7 @@ function HomePage() {
           <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10">
             <div className="fade-up md:col-span-7">
               <span className="inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-white/60 backdrop-blur px-4 py-1.5 text-[0.68rem] tracking-[0.22em] uppercase text-espresso">
-                <Sparkles size={12} className="text-champagne" />
+                <span className="h-1.5 w-1.5 rounded-full bg-lavender-deep" aria-hidden="true" />
                 Now booking · Ikeja, Lagos
               </span>
               <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.92] tracking-[-0.02em]">
@@ -40,7 +41,7 @@ function HomePage() {
                 premium products, and an hour of quiet luxury in the heart of Ikeja.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <LinkButton to="/book">Book Appointment</LinkButton>
+                <BookButton>Book Appointment</BookButton>
                 <LinkButton to="/gallery" variant="outline">View the Gallery</LinkButton>
               </div>
 
@@ -53,11 +54,9 @@ function HomePage() {
                   ))}
                 </div>
                 <div>
-                  <div className="flex items-center gap-1 text-champagne">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
-                    ))}
-                    <span className="ml-2 text-xs text-espresso/70">5.0 · 200+ happy guests</span>
+                  <div className="flex items-center gap-2 text-champagne">
+                    <span className="font-display text-lg leading-none text-ink">5.0</span>
+                    <span className="text-xs text-espresso/70">· 200+ happy guests</span>
                   </div>
                   <p className="mt-1 text-xs text-espresso/60">Rated the softest chair in Ikeja.</p>
                 </div>
@@ -141,8 +140,8 @@ function HomePage() {
               ))}
             </dl>
             <div className="mt-10">
-              <Link to="/about" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity">
-                Read our story <ArrowUpRight size={16} strokeWidth={1.25} />
+            <Link to="/about" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity border-b border-ink/40 pb-1">
+                Read our story →
               </Link>
             </div>
           </Reveal>
@@ -159,8 +158,8 @@ function HomePage() {
               eyebrow="The Treatments"
               title={<>Signature rituals,<br />crafted for you.</>}
             />
-            <Link to="/services" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity self-start md:self-end">
-              Explore all treatments <ArrowUpRight size={16} strokeWidth={1.25} />
+            <Link to="/services" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity self-start md:self-end border-b border-ink/40 pb-1">
+              Explore all treatments →
             </Link>
           </div>
 
@@ -252,8 +251,8 @@ function HomePage() {
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <SectionHeading eyebrow="Portfolio" title={<>Recent work from<br />the studio.</>} />
-            <Link to="/gallery" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity self-start md:self-end">
-              Open gallery <ArrowUpRight size={16} strokeWidth={1.25} />
+            <Link to="/gallery" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity self-start md:self-end border-b border-ink/40 pb-1">
+              Open gallery →
             </Link>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -275,28 +274,73 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ── INSPIRATION UPLOAD ──────────────────────────── */}
+      <section id="inspiration" className="border-t border-border/60 grad-bloom">
+        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-24 md:grid-cols-12 md:gap-16 md:px-10 md:py-32">
+          <div className="md:col-span-5">
+            <SectionHeading
+              eyebrow="Nail Inspo"
+              title={<>Send us the look,<br />we'll practise it first.</>}
+              body="Drop your inspiration photos before your appointment. Your technician will study, sketch and rehearse the design so your session runs like a dream."
+            />
+            <ul className="mt-8 space-y-3 text-sm text-espresso/75">
+              <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Upload one or several reference images</li>
+              <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Leave notes on colour, shape and length</li>
+              <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Book your slot — we'll match it to your inspo</li>
+            </ul>
+          </div>
+          <div className="md:col-span-7">
+            <InspoUpload />
+          </div>
+        </div>
+      </section>
+
       {/* ── TESTIMONIALS ────────────────────────────────── */}
-      <section className="border-t border-border/60">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
-          <SectionHeading eyebrow="Words From Guests" title="A studio built on trust." align="center" />
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {testimonials.slice(0, 3).map((t, i) => (
+      <section className="relative border-t border-border/60 overflow-hidden">
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[500px] rounded-full bg-lavender/30 blur-[120px]" aria-hidden="true" />
+        <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="eyebrow">Real Guests · Real Words</span>
+            <span className="gold-rule mx-auto mt-4 mb-6 block" aria-hidden="true" />
+            <h2 className="font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] text-ink">
+              What they say <em className="not-italic text-gradient">after</em>.
+            </h2>
+          </div>
+
+          {/* Featured quote */}
+          <Reveal className="mt-16 mx-auto max-w-4xl">
+            <figure className="relative rounded-[2rem] bg-white/80 backdrop-blur-sm border border-champagne/30 p-10 md:p-16 shadow-[0_40px_80px_-40px_oklch(0.5_0.15_320/0.4)]">
+              <span aria-hidden="true" className="absolute -top-8 left-8 font-display text-[8rem] leading-none text-lavender-deep/25 select-none">“</span>
+              <blockquote className="relative font-display text-2xl md:text-4xl leading-[1.25] text-ink italic">
+                {testimonials[0].review}
+              </blockquote>
+              <figcaption className="mt-10 flex items-center justify-between gap-6 border-t border-border/60 pt-6">
+                <div>
+                  <p className="font-display text-xl text-ink">{testimonials[0].name}</p>
+                  <p className="text-xs tracking-[0.2em] uppercase text-lavender-deep mt-1">{testimonials[0].handle}</p>
+                </div>
+                <div className="hidden md:flex items-center gap-1 text-champagne font-display text-lg">
+                  ★ ★ ★ ★ ★
+                </div>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          {/* Grid of shorter cards */}
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {testimonials.slice(1, 4).map((t, i) => (
               <Reveal key={t.name} delay={i * 80}>
-                <figure className="h-full rounded-md border border-border/60 bg-card p-8 flex flex-col">
-                  <div className="flex items-center gap-1 text-champagne" aria-label={`${t.rating} out of 5 stars`}>
-                    {Array.from({ length: t.rating }).map((_, k) => (
-                      <Star key={k} size={14} fill="currentColor" strokeWidth={0} />
-                    ))}
+                <figure className="group h-full rounded-2xl border border-border/60 bg-white/60 backdrop-blur-sm p-7 flex flex-col transition-all duration-500 hover:-translate-y-1 hover:border-champagne/60 hover:shadow-[0_30px_60px_-30px_oklch(0.5_0.15_320/0.3)]">
+                  <div className="flex items-center justify-between">
+                    <span className="text-champagne text-sm tracking-widest">★★★★★</span>
+                    <span className="text-[0.6rem] tracking-[0.22em] uppercase text-lavender-deep">Verified</span>
                   </div>
-                  <blockquote className="mt-6 font-display text-xl leading-snug text-ink">
-                    “{t.review}”
+                  <blockquote className="mt-5 text-base leading-relaxed text-espresso/85 flex-1">
+                    "{t.review}"
                   </blockquote>
-                  <figcaption className="mt-8 pt-6 border-t border-border/60 flex items-center gap-4">
-                    <div className="h-11 w-11 rounded-full placeholder-frame" aria-hidden="true" />
-                    <div>
-                      <p className="font-medium text-ink text-sm">{t.name}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">Verified guest</p>
-                    </div>
+                  <figcaption className="mt-6 pt-5 border-t border-border/60">
+                    <p className="font-display text-lg text-ink leading-tight">{t.name}</p>
+                    <p className="text-[0.65rem] tracking-[0.2em] uppercase text-espresso/50 mt-1">{t.handle}</p>
                   </figcaption>
                 </figure>
               </Reveal>

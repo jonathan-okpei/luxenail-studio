@@ -100,8 +100,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "stylesheet", href: "https://assets.calendly.com/assets/external/widget.css" },
     ],
     scripts: [
+      {
+        src: "https://assets.calendly.com/assets/external/widget.js",
+        async: true,
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify({
@@ -119,11 +124,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           areaServed: "Lagos, Nigeria",
           priceRange: "₦₦₦",
           openingHoursSpecification: [
-            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "09:00", closes: "20:00" },
-            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "21:00" },
-            { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "11:00", closes: "18:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "09:00", closes: "17:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "16:00" },
           ],
         }),
+      },
+      {
+        children: `window.addEventListener('load', function(){ if(window.Calendly){ Calendly.initBadgeWidget({ url: 'https://calendly.com/jonathanokpei1/30min?hide_event_type_details=1&background_color=fffefe&text_color=ffffff&primary_color=571a5f', text: 'Book an appointment', color: '#571a5f', textColor: '#ffffff', branding: true }); } });`,
       },
     ],
   }),
