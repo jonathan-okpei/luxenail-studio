@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { site } from "@/lib/site";
+import { BookButton } from "./BookButton";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -8,16 +10,13 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-24">
         <div className="grid gap-12 md:gap-16 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="font-display text-3xl text-ink">{site.brand}</p>
+            <img src={logo} alt={site.brand} className="h-14 w-auto" width={128} height={128} loading="lazy" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               A quiet studio in {site.city} for guests who value craft, hygiene and calm.
             </p>
-            <Link
-              to="/book"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-ink px-5 py-2.5 text-[0.72rem] tracking-[0.2em] uppercase text-ink hover:bg-ink hover:text-ivory transition-colors"
-            >
-              Book Appointment
-            </Link>
+            <div className="mt-8">
+              <BookButton variant="outline" className="px-5 py-2.5 text-[0.72rem]">Book Appointment</BookButton>
+            </div>
           </div>
 
           <div className="md:col-span-2">
@@ -27,7 +26,6 @@ export function Footer() {
               <li><Link to="/about" className="hover:text-ink text-espresso/80 transition-colors">About</Link></li>
               <li><Link to="/services" className="hover:text-ink text-espresso/80 transition-colors">Treatments</Link></li>
               <li><Link to="/gallery" className="hover:text-ink text-espresso/80 transition-colors">Gallery</Link></li>
-              <li><Link to="/book" className="hover:text-ink text-espresso/80 transition-colors">Book</Link></li>
               <li><Link to="/contact" className="hover:text-ink text-espresso/80 transition-colors">Contact</Link></li>
             </ul>
           </div>

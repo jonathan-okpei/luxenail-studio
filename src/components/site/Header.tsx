@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { site, nav } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { BookButton, openCalendly } from "./BookButton";
+import logo from "@/assets/logo.png";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,10 +34,11 @@ export function Header() {
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10 md:py-6">
         <Link
           to="/"
-          className="font-display text-xl tracking-tight text-ink hover:opacity-80 transition-opacity"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           aria-label={`${site.brand} — home`}
         >
-          {site.brand}
+          <img src={logo} alt="" className="h-11 md:h-12 w-auto" width={128} height={128} />
+          <span className="sr-only">{site.brand}</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-9">
@@ -51,12 +54,9 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          to="/book"
-          className="hidden md:inline-flex items-center gap-2 rounded-full border border-ink px-5 py-2.5 text-[0.72rem] tracking-[0.2em] uppercase text-ink hover:bg-ink hover:text-ivory transition-colors"
-        >
+        <BookButton variant="outline" className="hidden md:inline-flex px-5 py-2.5 text-[0.72rem]">
           Book
-        </Link>
+        </BookButton>
 
         <button
           type="button"
@@ -87,13 +87,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link
-            to="/book"
-            onClick={() => setOpen(false)}
+          <button
+            type="button"
+            onClick={() => { setOpen(false); openCalendly(); }}
             className="mt-10 inline-flex items-center justify-center rounded-full bg-ink px-6 py-4 text-[0.78rem] tracking-[0.18em] uppercase text-ivory"
           >
             Book Appointment
-          </Link>
+          </button>
         </nav>
       </div>
     </header>

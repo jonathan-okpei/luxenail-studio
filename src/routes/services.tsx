@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
+import { BookButton } from "@/components/site/BookButton";
 import { services } from "@/lib/site";
 
 const groups = [
@@ -54,7 +55,7 @@ function ServicesPage() {
           <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] text-ink">
             Treatments &amp; pricing.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-2xl text-xl md:text-2xl leading-relaxed text-espresso/80">
             A considered menu of manicures, pedicures, extensions and nail artistry. All prices are starting rates — final pricing depends on length, complexity and finish.
           </p>
         </div>
@@ -68,20 +69,20 @@ function ServicesPage() {
             <div className="mx-auto grid max-w-[1400px] gap-10 px-6 py-16 md:grid-cols-12 md:gap-16 md:px-10 md:py-24">
               <Reveal className="md:col-span-4">
                 <span className="eyebrow">0{gi + 1}</span>
-                <h2 className="mt-4 font-display text-4xl text-ink">{group.title}</h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed max-w-sm">{group.body}</p>
+                <h2 className="mt-4 font-display text-4xl md:text-5xl text-ink">{group.title}</h2>
+                <p className="mt-5 text-lg text-espresso/75 leading-relaxed max-w-sm">{group.body}</p>
               </Reveal>
               <div className="md:col-span-8">
                 {items.map((s, i) => (
                   <Reveal key={s.name} delay={i * 40}>
-                    <article className="grid grid-cols-[1fr_auto] items-baseline gap-6 border-b border-border/60 py-6">
+                    <article className="grid grid-cols-[1fr_auto] items-baseline gap-6 border-b border-border/60 py-8">
                       <div>
-                        <h3 className="font-display text-2xl text-ink">{s.name}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-xl">{s.description}</p>
-                        <p className="mt-3 text-[0.7rem] tracking-[0.2em] uppercase text-muted-foreground">{s.duration}</p>
+                        <h3 className="font-display text-2xl md:text-3xl text-ink">{s.name}</h3>
+                        <p className="mt-3 text-base md:text-lg text-espresso/75 leading-relaxed max-w-xl">{s.description}</p>
+                        <p className="mt-4 text-[0.75rem] tracking-[0.2em] uppercase text-espresso/60">{s.duration}</p>
                       </div>
-                      <p className="font-display text-xl text-ink whitespace-nowrap">
-                        <span className="text-[0.62rem] tracking-[0.2em] uppercase text-muted-foreground mr-2 align-middle">From</span>
+                      <p className="font-display text-2xl md:text-3xl text-ink whitespace-nowrap">
+                        <span className="text-[0.65rem] tracking-[0.2em] uppercase text-espresso/60 mr-2 align-middle">From</span>
                         {s.from}
                       </p>
                     </article>
@@ -97,7 +98,7 @@ function ServicesPage() {
         <div className="mx-auto max-w-[1100px] px-6 md:px-10 py-24 md:py-32 text-center">
           <SectionHeading eyebrow="Ready?" title="Reserve your seat." align="center" body="Instant confirmation. Rescheduling available up to 12 hours before your visit." />
           <div className="mt-10 flex justify-center gap-4">
-            <LinkButton to="/book">Book Appointment</LinkButton>
+            <BookButton>Book Appointment</BookButton>
             <LinkButton to="/contact" variant="outline">Ask a Question</LinkButton>
           </div>
         </div>

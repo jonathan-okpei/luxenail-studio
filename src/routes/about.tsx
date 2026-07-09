@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
+import { BookButton } from "@/components/site/BookButton";
 import { site, photos, owner } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
@@ -36,8 +37,8 @@ function AboutPage() {
           </p>
         </div>
 
-        <Reveal className="mt-16 md:mt-24">
-          <div className="aspect-[16/9] overflow-hidden rounded-[2rem]">
+        <Reveal className="mt-16 md:mt-24 flex justify-center">
+          <div className="w-full max-w-md aspect-square overflow-hidden rounded-[2rem] ring-1 ring-champagne/20">
             <img src={photos.img3} alt="Bespoke chrome and tortoise acrylic set" className="h-full w-full object-cover" />
           </div>
         </Reveal>
@@ -80,7 +81,7 @@ function AboutPage() {
           <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink">Ready when you are.</h2>
           <p className="mt-5 text-muted-foreground">Reserve your seat in a few taps.</p>
           <div className="mt-8 flex justify-center gap-4">
-            <LinkButton to="/book">Book Appointment</LinkButton>
+            <BookButton>Book Appointment</BookButton>
             <LinkButton to="/services" variant="outline">View Services</LinkButton>
           </div>
         </Reveal>
