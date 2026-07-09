@@ -385,7 +385,7 @@ function HomePage() {
             Select a service, choose a time, and receive instant confirmation. We look forward to hosting you at the studio.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <LinkButton to="/book">Book Appointment</LinkButton>
+            <BookButton>Book Appointment</BookButton>
             <LinkButton to="/contact" variant="outline">Contact Studio</LinkButton>
           </div>
           <p className="mt-8 text-xs text-muted-foreground">
