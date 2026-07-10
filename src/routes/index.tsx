@@ -229,7 +229,7 @@ function HomePage() {
               A studio built by a woman <em className="not-italic text-gradient">who gets it.</em>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">{owner.bio}</p>
-            <p className="mt-6 max-w-xl leading-relaxed text-espresso/70">
+            <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">
               I built Luxe Nail Studio as the salon I always wished existed — clean, calm, and unapologetically feminine.
               Whether you're prepping for your wedding day or simply need an hour to yourself, my team and I are here
               to make it feel like a treat.
