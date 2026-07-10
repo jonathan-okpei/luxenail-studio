@@ -3,7 +3,6 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
-import { BookButton } from "@/components/site/BookButton";
 import { InspoUpload } from "@/components/site/InspoUpload";
 import { services, reasons, testimonials, faqs, site, owner, photos } from "@/lib/site";
 
@@ -32,17 +31,20 @@ function HomePage() {
                 Now booking · Ikeja, Lagos
               </span>
               <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.92] tracking-[-0.02em]">
-                <span className="text-ink">Nails that feel</span><br />
-                <span className="text-gradient italic">unmistakably</span><br />
-                <span className="text-ink">yours.</span>
+                <span className="text-ink">A quiet luxury</span><br />
+                <span className="text-gradient italic">for the hands</span><br />
+                <span className="text-ink">you show the world.</span>
               </h1>
               <p className="mt-8 max-w-lg text-base leading-relaxed text-espresso/75">
-                A soft, considered nail atelier for the modern woman. Meticulous artistry,
-                premium products, and an hour of quiet luxury in the heart of Ikeja.
+                An appointment-only nail atelier in Ikeja, composed for the woman who
+                notices detail. Precise artistry, sealed sterile tools, and an hour
+                of unhurried care — softly, always.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <BookButton>Book Appointment</BookButton>
                 <LinkButton to="/gallery" variant="outline">View the Gallery</LinkButton>
+                <Link to="/services" className="text-[0.72rem] tracking-[0.22em] uppercase text-ink border-b border-ink/40 pb-1 hover:opacity-70 transition-opacity">
+                  Explore Treatments →
+                </Link>
               </div>
 
               <div className="mt-14 flex items-center gap-8">
