@@ -1,6 +1,6 @@
 import type { ReactNode, ComponentProps } from "react";
-import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { openBookingFlow } from "./BookingProvider";
 
 type Variant = "primary" | "outline" | "ghost";
 
@@ -14,14 +14,7 @@ const variants: Record<Variant, string> = {
 };
 
 export function openCalendly() {
-  const w = window as unknown as { Calendly?: { initPopupWidget: (o: { url: string }) => void } };
-  if (w.Calendly) {
-    w.Calendly.initPopupWidget({
-      url: `${site.calendlyUrl}?hide_event_type_details=1&background_color=fffefe&text_color=571a5f&primary_color=571a5f`,
-    });
-  } else {
-    window.open(site.calendlyUrl, "_blank", "noopener,noreferrer");
-  }
+  openBookingFlow();
 }
 
 type Props = {
@@ -36,7 +29,7 @@ export function BookButton({ variant = "primary", className, children = "Book Ap
       type="button"
       onClick={(e) => {
         onClick?.(e);
-        openCalendly();
+        openBookingFlow();
       }}
       className={cn(base, variants[variant], className)}
       {...rest}
