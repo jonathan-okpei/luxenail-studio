@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { site, nav } from "@/lib/site";
+import { nav } from "@/lib/site";
 import { cn } from "@/lib/utils";
-import { BookButton, openCalendly } from "./BookButton";
-import logo from "@/assets/logo.png";
+import { BookButton } from "./BookButton";
+import { openBookingFlow } from "./BookingProvider";
+import { Brand } from "./Brand";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,14 +33,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10 md:py-6">
-        <Link
-          to="/"
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-          aria-label={`${site.brand} — home`}
-        >
-          <img src={logo} alt="" className="h-11 md:h-12 w-auto" width={128} height={128} />
-          <span className="sr-only">{site.brand}</span>
-        </Link>
+        <Brand size="md" />
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-9">
           {nav.map((item) => (
@@ -89,7 +83,7 @@ export function Header() {
           ))}
           <button
             type="button"
-            onClick={() => { setOpen(false); openCalendly(); }}
+            onClick={() => { setOpen(false); openBookingFlow(); }}
             className="mt-10 inline-flex items-center justify-center rounded-full bg-ink px-6 py-4 text-[0.78rem] tracking-[0.18em] uppercase text-ivory"
           >
             Book Appointment
