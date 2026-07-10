@@ -400,9 +400,10 @@ function HomePage() {
             Select a service, choose a time, and receive instant confirmation. We look forward to hosting you at the studio.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <BookButton>Book Appointment</BookButton>
             <LinkButton to="/contact" variant="outline">Contact Studio</LinkButton>
+            <LinkButton to="/services">Explore Treatments</LinkButton>
           </div>
+          <p className="mt-6 text-xs text-muted-foreground">Use the pink book button in the corner to reserve your slot.</p>
           <p className="mt-8 text-xs text-muted-foreground">
             {site.address} · {site.phone}
           </p>
