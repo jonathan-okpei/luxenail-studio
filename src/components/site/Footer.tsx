@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { site } from "@/lib/site";
 import { BookButton } from "./BookButton";
-import logo from "@/assets/logo.png";
+import { Brand } from "./Brand";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -10,7 +10,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-24">
         <div className="grid gap-12 md:gap-16 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={logo} alt={site.brand} className="h-14 w-auto" width={128} height={128} loading="lazy" />
+            <Brand size="lg" showTagline />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               A quiet studio in {site.city} for guests who value craft, hygiene and calm.
             </p>

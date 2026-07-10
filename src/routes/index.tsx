@@ -3,7 +3,6 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
-import { BookButton } from "@/components/site/BookButton";
 import { InspoUpload } from "@/components/site/InspoUpload";
 import { services, reasons, testimonials, faqs, site, owner, photos } from "@/lib/site";
 
@@ -32,17 +31,20 @@ function HomePage() {
                 Now booking · Ikeja, Lagos
               </span>
               <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.92] tracking-[-0.02em]">
-                <span className="text-ink">Nails that feel</span><br />
-                <span className="text-gradient italic">unmistakably</span><br />
-                <span className="text-ink">yours.</span>
+                <span className="text-ink">A quiet luxury</span><br />
+                <span className="text-gradient italic">for the hands</span><br />
+                <span className="text-ink">you show the world.</span>
               </h1>
               <p className="mt-8 max-w-lg text-base leading-relaxed text-espresso/75">
-                A soft, considered nail atelier for the modern woman. Meticulous artistry,
-                premium products, and an hour of quiet luxury in the heart of Ikeja.
+                An appointment-only nail atelier in Ikeja, composed for the woman who
+                notices detail. Precise artistry, sealed sterile tools, and an hour
+                of unhurried care — softly, always.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <BookButton>Book Appointment</BookButton>
                 <LinkButton to="/gallery" variant="outline">View the Gallery</LinkButton>
+                <Link to="/services" className="text-[0.72rem] tracking-[0.22em] uppercase text-ink border-b border-ink/40 pb-1 hover:opacity-70 transition-opacity">
+                  Explore Treatments →
+                </Link>
               </div>
 
               <div className="mt-14 flex items-center gap-8">
@@ -102,49 +104,62 @@ function HomePage() {
       </section>
 
       {/* ── ABOUT ────────────────────────────────────────── */}
-      <section className="border-t border-border/60">
-        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-24 md:grid-cols-12 md:gap-16 md:px-10 md:py-32">
-          <Reveal className="md:col-span-5">
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-[2rem]">
-                <img src={photos.img5} alt="Modern French tip manicure" className="h-full w-full object-cover" />
+      <section className="relative border-t border-border/60 bg-ink text-ivory overflow-hidden">
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-lavender-deep/30 blur-[130px]" aria-hidden="true" />
+        <div className="absolute -bottom-32 -right-24 h-[28rem] w-[28rem] rounded-full bg-champagne/20 blur-[140px]" aria-hidden="true" />
+        <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-16 items-center">
+            <Reveal className="md:col-span-6">
+              <span className="inline-block text-[0.66rem] tracking-[0.28em] uppercase text-champagne">The Studio</span>
+              <span className="block mt-3 h-px w-14 bg-champagne/60" aria-hidden="true" />
+              <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] text-ivory">
+                An atelier built for
+                <em className="not-italic italic text-champagne"> the quiet moments </em>
+                between appointments.
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-ivory/80 max-w-lg">
+                Tucked into Ikeja, our appointment-only space was designed like a private
+                lounge — warm lighting, sealed tools, considered scent — so every visit
+                feels less like an errand and more like an hour returned to you.
+              </p>
+
+              <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
+                {[
+                  ["10+", "years of craft"],
+                  ["3wk", "average wear"],
+                  ["200+", "happy guests"],
+                ].map(([n, l]) => (
+                  <div key={l as string}>
+                    <p className="font-display text-3xl md:text-4xl text-champagne">{n}</p>
+                    <p className="mt-2 text-[0.62rem] tracking-[0.22em] uppercase text-ivory/60">{l}</p>
+                  </div>
+                ))}
               </div>
-              <div className="absolute -bottom-6 -right-6 w-1/2 aspect-square overflow-hidden rounded-[1.5rem] ring-8 ring-ivory hidden md:block">
-                <img src={photos.img7} alt="Long-wear gel colour" className="h-full w-full object-cover" />
+
+              <div className="mt-10">
+                <Link to="/about" className="inline-flex items-center gap-2 text-[0.72rem] tracking-[0.22em] uppercase text-ivory border-b border-champagne/60 pb-1 hover:text-champagne transition-colors">
+                  Inside the studio →
+                </Link>
               </div>
-            </div>
-          </Reveal>
-          <Reveal delay={120} className="md:col-span-7 md:pl-8">
-            <SectionHeading
-              eyebrow="Our Studio"
-              title={<>A quiet space, considered<br />in every detail.</>}
-              body={
-                <>
-                  Luxe Nail Studio is a small, appointment-only atelier in the heart of Ikeja.
-                  We built it around the things that matter — meticulous hygiene, globally trusted products,
-                  and the kind of attention that turns a nail appointment into an hour of calm.
-                </>
-              }
-            />
-            <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-lg">
-              {[
-                ["Attention", "Every set placed with intention."],
-                ["Hygiene", "Hospital-grade sterilisation."],
-                ["Products", "Premium gels & builders only."],
-                ["Comfort", "Calm, private, unhurried."],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <dt className="eyebrow">{k}</dt>
-                  <dd className="mt-2 text-sm text-espresso/80 leading-relaxed">{v}</dd>
+            </Reveal>
+
+            <Reveal delay={120} className="md:col-span-6">
+              <div className="relative grid grid-cols-6 grid-rows-6 gap-3 h-[420px] md:h-[540px]">
+                <div className="col-span-4 row-span-4 overflow-hidden rounded-[1.5rem] ring-1 ring-champagne/20">
+                  <img src={photos.img5} alt="Modern French tip manicure" className="h-full w-full object-cover" />
                 </div>
-              ))}
-            </dl>
-            <div className="mt-10">
-            <Link to="/about" className="inline-flex items-center gap-2 text-[0.78rem] tracking-[0.2em] uppercase text-ink hover:opacity-70 transition-opacity border-b border-ink/40 pb-1">
-                Read our story →
-              </Link>
-            </div>
-          </Reveal>
+                <div className="col-span-2 row-span-3 col-start-5 row-start-1 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
+                  <img src={photos.img7} alt="Long-wear gel colour" className="h-full w-full object-cover" />
+                </div>
+                <div className="col-span-3 row-span-3 col-start-4 row-start-4 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
+                  <img src={photos.img4} alt="Custom nail artistry" className="h-full w-full object-cover" />
+                </div>
+                <div className="col-span-3 row-span-2 col-start-1 row-start-5 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
+                  <img src={photos.img2} alt="Signature pedicure" className="h-full w-full object-cover" />
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -214,7 +229,7 @@ function HomePage() {
               A studio built by a woman <em className="not-italic text-gradient">who gets it.</em>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">{owner.bio}</p>
-            <p className="mt-6 max-w-xl leading-relaxed text-espresso/70">
+            <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">
               I built Luxe Nail Studio as the salon I always wished existed — clean, calm, and unapologetically feminine.
               Whether you're prepping for your wedding day or simply need an hour to yourself, my team and I are here
               to make it feel like a treat.
@@ -385,9 +400,10 @@ function HomePage() {
             Select a service, choose a time, and receive instant confirmation. We look forward to hosting you at the studio.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <BookButton>Book Appointment</BookButton>
             <LinkButton to="/contact" variant="outline">Contact Studio</LinkButton>
+            <LinkButton to="/services">Explore Treatments</LinkButton>
           </div>
+          <p className="mt-6 text-xs text-muted-foreground">Use the pink book button in the corner to reserve your slot.</p>
           <p className="mt-8 text-xs text-muted-foreground">
             {site.address} · {site.phone}
           </p>

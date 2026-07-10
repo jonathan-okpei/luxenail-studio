@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { BookingProvider } from "../components/site/BookingProvider";
 
 function NotFoundComponent() {
   return (
@@ -95,6 +96,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: "https://assets.calendly.com" },
+      { rel: "preconnect", href: "https://calendly.com" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap",
@@ -129,9 +132,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           ],
         }),
       },
-      {
-        children: `window.addEventListener('load', function(){ if(window.Calendly){ Calendly.initBadgeWidget({ url: 'https://calendly.com/jonathanokpei1/30min?hide_event_type_details=1&background_color=fffefe&text_color=ffffff&primary_color=571a5f', text: 'Book an appointment', color: '#571a5f', textColor: '#ffffff', branding: true }); } });`,
-      },
     ],
   }),
   shellComponent: RootShell,
@@ -161,6 +161,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <BookingProvider />
     </QueryClientProvider>
   );
 }
