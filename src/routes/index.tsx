@@ -8,7 +8,24 @@ import { services, reasons, testimonials, faqs, site, owner, photos } from "@/li
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "https://luxenail-studio.lovable.app/" },
+      { rel: "preload", as: "image", href: photos.img1, fetchpriority: "high" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: HomePage,
 });
@@ -68,7 +85,7 @@ function HomePage() {
             <div className="md:col-span-5 relative min-h-[520px] md:min-h-[640px]">
               {/* Main image */}
               <div className="absolute right-0 top-0 w-[78%] aspect-[3/4] overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-30px_oklch(0.5_0.15_320/0.35)] rotate-[2deg]">
-                <img src={photos.img1} alt="Signature glossy gel manicure" className="h-full w-full object-cover" />
+                <img src={photos.img1} alt="Signature glossy gel manicure" width={720} height={960} fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
               </div>
               {/* Overlapping image */}
               <div className="absolute left-0 bottom-6 w-[58%] aspect-[3/4] overflow-hidden rounded-[2rem] ring-8 ring-ivory shadow-[0_30px_60px_-25px_oklch(0.55_0.14_300/0.4)] floaty">

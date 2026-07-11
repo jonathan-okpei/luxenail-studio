@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://luxenail-studio.lovable.app/sitemap.xml

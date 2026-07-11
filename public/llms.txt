@@ -1,0 +1,13 @@
+# Luxe Nail Studio
+
+> Premium, appointment-only nail atelier in Ikeja, Lagos. Manicures, pedicures, acrylic and gel extensions, BIAB, French tips, custom nail art and bridal nails.
+
+Luxe Nail Studio is a boutique nail salon serving Lagos Mainland. The studio focuses on precise artistry, hospital-grade hygiene, long-wear finishes and a calm, unhurried guest experience. Booking is online and secured with a small deposit; guests can send inspiration photos ahead of their appointment.
+
+## Pages
+
+- [Home](/): Studio overview, hero treatments, founder note and inspiration upload.
+- [About](/about): The studio's story, founder Amara Johnson, and guiding principles.
+- [Treatments](/services): Full menu and pricing — manicures, pedicures, extensions, nail art, bridal and signature rituals.
+- [Gallery](/gallery): Portfolio of recent work across acrylic, gel, French tips, pedicures and custom art.
+- [Contact](/contact): Address, hours (Tue–Sat 9–5, Sun 10–4), phone, WhatsApp, Instagram and directions.
