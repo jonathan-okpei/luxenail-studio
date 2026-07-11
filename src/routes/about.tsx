@@ -37,9 +37,17 @@ function AboutPage() {
           </p>
         </div>
 
-        <Reveal className="mt-16 md:mt-24 flex justify-center">
-          <div className="w-full max-w-md aspect-square overflow-hidden rounded-[2rem] ring-1 ring-champagne/20">
-            <img src={photos.img3} alt="Bespoke chrome and tortoise acrylic set" className="h-full w-full object-cover" />
+        <Reveal className="mt-16 md:mt-24 grid gap-4 md:grid-cols-3">
+          <div className="md:col-span-2 aspect-[4/3] overflow-hidden rounded-[2rem] ring-1 ring-champagne/20">
+            <img src={photos.salon4} alt="Inside the Luxe Nail Studio lounge" loading="lazy" className="h-full w-full object-cover" />
+          </div>
+          <div className="grid grid-rows-2 gap-4">
+            <div className="overflow-hidden rounded-[1.5rem] ring-1 ring-champagne/20">
+              <img src={photos.salon1} alt="Manicure station with warm ambient lighting" loading="lazy" className="h-full w-full object-cover" />
+            </div>
+            <div className="overflow-hidden rounded-[1.5rem] ring-1 ring-champagne/20">
+              <img src={photos.salon3} alt="Pedicure platform in blush and gold" loading="lazy" className="h-full w-full object-cover" />
+            </div>
           </div>
         </Reveal>
 

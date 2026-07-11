@@ -146,16 +146,16 @@ function HomePage() {
             <Reveal delay={120} className="md:col-span-6">
               <div className="relative grid grid-cols-6 grid-rows-6 gap-3 h-[420px] md:h-[540px]">
                 <div className="col-span-4 row-span-4 overflow-hidden rounded-[1.5rem] ring-1 ring-champagne/20">
-                  <img src={photos.img5} alt="Modern French tip manicure" className="h-full w-full object-cover" />
+                  <img src={photos.salon1} alt="Boutique nail studio interior with blush and gold accents" loading="lazy" className="h-full w-full object-cover" />
                 </div>
                 <div className="col-span-2 row-span-3 col-start-5 row-start-1 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
-                  <img src={photos.img7} alt="Long-wear gel colour" className="h-full w-full object-cover" />
+                  <img src={photos.salon2} alt="Marble station with peonies and polish" loading="lazy" className="h-full w-full object-cover" />
                 </div>
                 <div className="col-span-3 row-span-3 col-start-4 row-start-4 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
-                  <img src={photos.img4} alt="Custom nail artistry" className="h-full w-full object-cover" />
+                  <img src={photos.salon3} alt="Elegant pedicure platform in lavender and gold" loading="lazy" className="h-full w-full object-cover" />
                 </div>
                 <div className="col-span-3 row-span-2 col-start-1 row-start-5 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
-                  <img src={photos.img2} alt="Signature pedicure" className="h-full w-full object-cover" />
+                  <img src={photos.salon4} alt="Luxe Nail Studio lounge and reception" loading="lazy" className="h-full w-full object-cover" />
                 </div>
               </div>
             </Reveal>
@@ -295,8 +295,8 @@ function HomePage() {
           <div className="md:col-span-5">
             <SectionHeading
               eyebrow="Nail Inspo"
-              title={<>Send us the look,<br />we'll practise it first.</>}
-              body="Drop your inspiration photos before your appointment. Your technician will study, sketch and rehearse the design so your session runs like a dream."
+              title={<>Send us the look,<br />let's recreate it.</>}
+              body="Drop your inspiration photos before your appointment. Your technician will study the design so your session runs like a dream."
             />
             <ul className="mt-8 space-y-3 text-sm text-espresso/75">
               <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Upload one or several reference images</li>

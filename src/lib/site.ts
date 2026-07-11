@@ -8,8 +8,12 @@ import img6 from "@/assets/gallery/39d1db8962791c38a6ba364ed739d208.jpg";
 import img7 from "@/assets/gallery/51f8ed77bd09cef3c34545d338250fd4.jpg";
 import img8 from "@/assets/gallery/74243338fb71b9908eaeec6377932277.jpg";
 import ownerImg from "@/assets/owner.jpg";
+import salon1 from "@/assets/salon-1.jpg";
+import salon2 from "@/assets/salon-2.jpg";
+import salon3 from "@/assets/salon-3.jpg";
+import salon4 from "@/assets/salon-4.jpg";
 
-export const photos = { img1, img2, img3, img4, img5, img6, img7, img8, owner: ownerImg };
+export const photos = { img1, img2, img3, img4, img5, img6, img7, img8, owner: ownerImg, salon1, salon2, salon3, salon4 };
 
 export const owner = {
   name: "Amara Johnson",
@@ -80,7 +84,7 @@ export const reasons = [
 ];
 
 export const testimonials = [
-  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "I uploaded my inspo photos a few days before my appointment and walked in to find my technician had already sketched and rehearsed the design. I've never felt more looked-after in a Lagos studio." },
+  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "I sent in my inspo photos a few days before my appointment and walked in to a set that matched the reference exactly. I've never felt more looked-after in a Lagos studio." },
   { name: "Ngozi Okafor", handle: "@ngozi.ok", rating: 5, review: "Three full weeks and not a single lift. The finish is glassy, the shape is perfect and the studio itself feels like a spa retreat." },
   { name: "Halima Bello", handle: "@halima_b", rating: 5, review: "Bridal appointment: trial, tweak, wedding-day set — every touchpoint felt considered. My hands in every photo look unreal." },
   { name: "Yewande Cole", handle: "@yewandecole", rating: 5, review: "I'm precious about hygiene. Watching them unwrap sealed tools in front of me sold me for life. Talent + trust." },
