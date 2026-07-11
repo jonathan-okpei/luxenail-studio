@@ -16,21 +16,22 @@ export function InspoUpload() {
     setError(null);
     setUploading(true);
     try {
-      const folder = `${name.trim().replace(/[^a-z0-9-]/gi, "_") || "guest"}-${Date.now()}`;
+      const folder = `uploads/${name.trim().replace(/[^a-z0-9-]/gi, "_") || "guest"}-${Date.now()}`;
       const uploaded: UploadedFile[] = [];
       for (const file of Array.from(list)) {
         if (file.size > 10 * 1024 * 1024) {
           setError(`"${file.name}" is over 10MB and was skipped.`);
           continue;
         }
-        const path = `${folder}/${Date.now()}-${file.name.replace(/[^a-z0-9._-]/gi, "_")}`;
+        const safeName = file.name.replace(/[^a-z0-9._-]/gi, "_").toLowerCase();
+        const path = `${folder}/${Date.now()}-${safeName}`;
         const { error: upErr } = await supabase.storage.from("nail-inspo").upload(path, file, {
           cacheControl: "3600",
           upsert: false,
         });
         if (upErr) throw upErr;
-        const { data } = supabase.storage.from("nail-inspo").getPublicUrl(path);
-        uploaded.push({ name: file.name, url: data.publicUrl });
+        // Bucket is private; use a local object URL just for the guest's own preview.
+        uploaded.push({ name: file.name, url: URL.createObjectURL(file) });
       }
       if (notes.trim()) {
         const meta = new Blob([JSON.stringify({ name, notes, files: uploaded }, null, 2)], { type: "application/json" });
