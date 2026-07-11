@@ -50,6 +50,7 @@ export function InspoUpload() {
       <div className="grid gap-4 md:grid-cols-2 mb-6">
         <input
           type="text"
+          aria-label="Your name"
           placeholder="Your name"
           maxLength={80}
           value={name}
@@ -58,6 +59,7 @@ export function InspoUpload() {
         />
         <input
           type="text"
+          aria-label="Notes for your technician"
           placeholder="Notes for your technician (colour, shape…)"
           maxLength={280}
           value={notes}
@@ -69,6 +71,7 @@ export function InspoUpload() {
       <label className="group relative block cursor-pointer rounded-2xl border-2 border-dashed border-lavender-deep/40 bg-gradient-to-br from-white to-lavender/10 px-6 py-10 text-center transition-colors hover:border-lavender-deep">
         <input
           type="file"
+          aria-label="Upload inspiration photos"
           accept="image/*"
           multiple
           className="sr-only"
@@ -91,7 +94,7 @@ export function InspoUpload() {
           <div className="mt-4 grid grid-cols-3 md:grid-cols-5 gap-3">
             {files.map((f) => (
               <a key={f.url} href={f.url} target="_blank" rel="noreferrer" className="group aspect-square overflow-hidden rounded-xl ring-1 ring-champagne/30">
-                <img src={f.url} alt={f.name} className="h-full w-full object-cover transition-transform group-hover:scale-105" />
+                <img src={f.url} alt="" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
               </a>
             ))}
           </div>
