@@ -144,19 +144,8 @@ function HomePage() {
             </Reveal>
 
             <Reveal delay={120} className="md:col-span-6">
-              <div className="relative grid grid-cols-6 grid-rows-6 gap-3 h-[420px] md:h-[540px]">
-                <div className="col-span-4 row-span-4 overflow-hidden rounded-[1.5rem] ring-1 ring-champagne/20">
-                  <img src={photos.salon1} alt="Boutique nail studio interior with blush and gold accents" loading="lazy" className="h-full w-full object-cover" />
-                </div>
-                <div className="col-span-2 row-span-3 col-start-5 row-start-1 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
-                  <img src={photos.salon2} alt="Marble station with peonies and polish" loading="lazy" className="h-full w-full object-cover" />
-                </div>
-                <div className="col-span-3 row-span-3 col-start-4 row-start-4 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
-                  <img src={photos.salon3} alt="Elegant pedicure platform in lavender and gold" loading="lazy" className="h-full w-full object-cover" />
-                </div>
-                <div className="col-span-3 row-span-2 col-start-1 row-start-5 overflow-hidden rounded-[1.25rem] ring-1 ring-champagne/20">
-                  <img src={photos.salon4} alt="Luxe Nail Studio lounge and reception" loading="lazy" className="h-full w-full object-cover" />
-                </div>
+              <div className="relative h-[420px] md:h-[540px] overflow-hidden rounded-[2rem] ring-1 ring-champagne/20 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.35)]">
+                <img src={photos.salon1} alt="Boutique nail studio interior with blush and gold accents" loading="lazy" className="h-full w-full object-cover" />
               </div>
             </Reveal>
           </div>
