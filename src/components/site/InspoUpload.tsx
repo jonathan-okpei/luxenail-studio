@@ -78,7 +78,7 @@ export function InspoUpload() {
           {uploading ? "Uploading…" : "Drop your inspo photos here"}
         </p>
         <p className="mt-2 text-sm text-espresso/60">
-          JPG or PNG · up to 10MB each · we'll practise the design before your visit
+          JPG or PNG · up to 10MB each · send in your inspo and let's recreate it
         </p>
       </label>
 
