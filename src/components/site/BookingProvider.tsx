@@ -19,10 +19,10 @@ function openCalendlyPopup() {
 const instructions = [
   { t: "Give us 24 hours", b: "Please book at least 24 hours in advance so we can prepare your set and any custom art." },
   { t: "Arrive with clean nails", b: "Come with clean, dry hands. If you're wearing polish or a previous set, add a Removal service." },
-  { t: "Send your inspo", b: "Upload reference photos on the home page or bring them on the day — your tech will study them beforehand." },
+  { t: "Continue on WhatsApp", b: "After booking you'll be sent to a confirmation page with a WhatsApp button. That's where you'll share your inspo, discuss design and receive deposit details." },
   { t: "Late arrivals", b: "A 10-minute grace period applies. Beyond that we may need to shorten or reschedule your service." },
   { t: "Cancellations", b: "Reschedule for free up to 12 hours before your appointment via the link in your confirmation email." },
-  { t: "Deposit", b: "A small booking deposit secures your slot and is applied to your final bill." },
+  { t: "Deposit", b: "Your appointment is only fully confirmed once your booking deposit has been received via WhatsApp." },
 ];
 
 export function BookingProvider() {
@@ -32,6 +32,25 @@ export function BookingProvider() {
     const handler = () => setOpen(true);
     window.addEventListener(OPEN_EVENT, handler);
     return () => window.removeEventListener(OPEN_EVENT, handler);
+  }, []);
+
+  // Listen for Calendly's postMessage when the guest completes booking, then
+  // send them to our custom confirmation page.
+  useEffect(() => {
+    function isCalendlyEvent(e: MessageEvent) {
+      return typeof e.data === "object" && e.data !== null && typeof (e.data as { event?: string }).event === "string" && (e.data as { event: string }).event.indexOf("calendly.") === 0;
+    }
+    function onMessage(e: MessageEvent) {
+      if (!isCalendlyEvent(e)) return;
+      const ev = (e.data as { event: string }).event;
+      if (ev === "calendly.event_scheduled") {
+        if (window.location.pathname !== "/booked") {
+          window.location.href = "/booked";
+        }
+      }
+    }
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
   }, []);
 
   return (
