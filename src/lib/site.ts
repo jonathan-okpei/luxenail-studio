@@ -87,7 +87,7 @@ export const reasons = [
 ];
 
 export const testimonials = [
-  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "I sent in my inspo photos a few days before my appointment and walked in to a set that matched the reference exactly. I've never felt more looked-after in a Lagos studio." },
+  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "From the moment I booked to the moment I sat down, the whole process felt seamless. I walked out with the exact set I'd dreamed of — I've never felt more looked-after in a Lagos studio." },
   { name: "Ngozi Okafor", handle: "@ngozi.ok", rating: 5, review: "Three full weeks and not a single lift. The finish is glassy, the shape is perfect and the studio itself feels like a spa retreat." },
   { name: "Halima Bello", handle: "@halima_b", rating: 5, review: "Bridal appointment: trial, tweak, wedding-day set — every touchpoint felt considered. My hands in every photo look unreal." },
   { name: "Yewande Cole", handle: "@yewandecole", rating: 5, review: "I'm precious about hygiene. Watching them unwrap sealed tools in front of me sold me for life. Talent + trust." },
