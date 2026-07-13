@@ -33,6 +33,9 @@ export const site = {
   email: "hello@luxenailstudio.com",
   instagram: "@luxenailstudio",
   instagramUrl: "https://instagram.com/",
+  whatsappNumber: "2347075337056",
+  whatsappUrl: "https://wa.me/2347075337056",
+  whatsappMessage: "Hi Nailedby_ruu! 👋\n\nI've just booked my appointment through your website.\n\nI'd like to send my nail inspiration and complete my booking.",
   hours: [
     { day: "Monday", time: "Closed" },
     { day: "Tuesday – Saturday", time: "9:00 AM – 5:00 PM" },
