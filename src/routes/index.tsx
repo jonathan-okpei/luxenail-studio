@@ -3,7 +3,6 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
-import { InspoUpload } from "@/components/site/InspoUpload";
 import { services, reasons, testimonials, faqs, site, owner, photos } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -291,27 +290,6 @@ function HomePage() {
                 </div>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INSPIRATION UPLOAD ──────────────────────────── */}
-      <section id="inspiration" className="border-t border-border/60 grad-bloom">
-        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-24 md:grid-cols-12 md:gap-16 md:px-10 md:py-32">
-          <div className="md:col-span-5">
-            <SectionHeading
-              eyebrow="Nail Inspo"
-              title={<>Send us the look,<br />let's recreate it.</>}
-              body="Drop your inspiration photos before your appointment. Your technician will study the design so your session runs like a dream."
-            />
-            <ul className="mt-8 space-y-3 text-sm text-espresso/75">
-              <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Upload one or several reference images</li>
-              <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Leave notes on colour, shape and length</li>
-              <li className="flex gap-3"><span className="text-lavender-deep font-display text-xl leading-none">·</span> Book your slot — we'll match it to your inspo</li>
-            </ul>
-          </div>
-          <div className="md:col-span-7">
-            <InspoUpload />
           </div>
         </div>
       </section>

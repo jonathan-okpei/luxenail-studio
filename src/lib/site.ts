@@ -33,6 +33,9 @@ export const site = {
   email: "hello@luxenailstudio.com",
   instagram: "@luxenailstudio",
   instagramUrl: "https://instagram.com/",
+  whatsappNumber: "2347075337056",
+  whatsappUrl: "https://wa.me/2347075337056",
+  whatsappMessage: "Hi Nailedby_ruu! 👋\n\nI've just booked my appointment through your website.\n\nI'd like to send my nail inspiration and complete my booking.",
   hours: [
     { day: "Monday", time: "Closed" },
     { day: "Tuesday – Saturday", time: "9:00 AM – 5:00 PM" },
@@ -84,7 +87,7 @@ export const reasons = [
 ];
 
 export const testimonials = [
-  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "I sent in my inspo photos a few days before my appointment and walked in to a set that matched the reference exactly. I've never felt more looked-after in a Lagos studio." },
+  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "From the moment I booked to the moment I sat down, the whole process felt seamless. I walked out with the exact set I'd dreamed of — I've never felt more looked-after in a Lagos studio." },
   { name: "Ngozi Okafor", handle: "@ngozi.ok", rating: 5, review: "Three full weeks and not a single lift. The finish is glassy, the shape is perfect and the studio itself feels like a spa retreat." },
   { name: "Halima Bello", handle: "@halima_b", rating: 5, review: "Bridal appointment: trial, tweak, wedding-day set — every touchpoint felt considered. My hands in every photo look unreal." },
   { name: "Yewande Cole", handle: "@yewandecole", rating: 5, review: "I'm precious about hygiene. Watching them unwrap sealed tools in front of me sold me for life. Talent + trust." },
