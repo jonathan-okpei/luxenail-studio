@@ -16,32 +16,37 @@ import salon4 from "@/assets/salon-4.jpg";
 export const photos = { img1, img2, img3, img4, img5, img6, img7, img8, owner: ownerImg, salon1, salon2, salon3, salon4 };
 
 export const owner = {
-  name: "Amara Johnson",
+  name: "Ruu",
   role: "Founder & Lead Nail Artist",
   image: ownerImg,
-  bio: "For over a decade, I've been obsessed with the quiet ritual of a perfect manicure. Luxe Nail Studio is my love letter to the modern woman — a soft, considered space in Ikeja where every guest is treated like the main character.",
-  signature: "— Amara",
+  bio: "I started Nailedby_Ruu because of my deep love for nail artistry and the quiet calm that comes from creating beautiful, considered designs. My mission is to elevate the perception of nail technicians across Nigeria — from people simply providing a service to respected professionals delivering premium care and an exceptional experience.",
+  signature: "— Ruu",
 };
 export const site = {
-  brand: "Luxe Nail Studio",
-  short: "Luxe",
-  tagline: "Luxury Nail Care, Designed Around You.",
-  city: "Ikeja, Lagos",
-  address: "Ikeja, Lagos Mainland, Nigeria",
-  phone: "+234 000 000 0000",
-  whatsapp: "+234 000 000 0000",
-  email: "hello@luxenailstudio.com",
-  instagram: "@luxenailstudio",
-  instagramUrl: "https://instagram.com/",
-  whatsappNumber: "2347075337056",
-  whatsappUrl: "https://wa.me/2347075337056",
-  whatsappMessage: "Hi Nailedby_ruu! 👋\n\nI've just booked my appointment through your website.\n\nI'd like to send my nail inspiration and complete my booking.",
+  brand: "Nailedby_Ruu",
+  short: "Ruu",
+  tagline: "Luxury Nails, Crafted with Precision.",
+  city: "Somolu, Lagos",
+  address: "Somolu, Lagos, Nigeria",
+  phone: "+234 816 026 7472",
+  whatsapp: "+234 816 026 7472",
+  email: "hello@nailedbyruu.com",
+  instagram: "@nailedby_ruu",
+  instagramUrl: "https://www.instagram.com/nailedby_ruu/",
+  tiktok: "@nailedby_ruu",
+  tiktokUrl: "https://www.tiktok.com/@nailedby_ruu",
+  whatsappNumber: "2348160267472",
+  whatsappUrl: "https://wa.me/2348160267472",
+  whatsappMessage: "Hi Nailedby_Ruu! 👋\n\nI've just booked an appointment through your website. I'd like to share my nail inspiration and complete my booking.",
   hours: [
     { day: "Monday", time: "Closed" },
     { day: "Tuesday – Saturday", time: "9:00 AM – 5:00 PM" },
     { day: "Sunday", time: "10:00 AM – 4:00 PM" },
   ],
   calendlyUrl: "https://calendly.com/jonathanokpei1/30min",
+  pricingNote:
+    "Pricing varies depending on your preferred nail design and requirements. Final pricing will be discussed during your consultation on WhatsApp.",
+  depositAmount: "₦10,000",
 } as const;
 
 export const nav = [
@@ -55,53 +60,44 @@ export const nav = [
 export type Service = {
   name: string;
   description: string;
-  duration: string;
-  from: string;
-  category: "Manicure" | "Pedicure" | "Extensions" | "Art" | "Signature";
+  duration?: string;
 };
 
 export const services: Service[] = [
-  { name: "Classic Manicure", description: "Shaping, cuticle care and a flawless polish finish.", duration: "45 min", from: "₦8,000", category: "Manicure" },
-  { name: "Gel Manicure", description: "Long-wearing high-gloss gel colour that lasts up to three weeks.", duration: "60 min", from: "₦12,000", category: "Manicure" },
-  { name: "BIAB Nails", description: "Builder-in-a-bottle overlay for strength on your natural nail.", duration: "75 min", from: "₦18,000", category: "Manicure" },
-  { name: "Acrylic Nails", description: "Sculpted acrylic extensions tailored to your desired length and shape.", duration: "90 min", from: "₦22,000", category: "Extensions" },
-  { name: "Gel Extensions", description: "Lightweight, natural-feeling extensions with a glass-clear finish.", duration: "90 min", from: "₦24,000", category: "Extensions" },
-  { name: "French Tips", description: "The timeless silhouette — hand-painted with a modern edge.", duration: "75 min", from: "₦15,000", category: "Art" },
-  { name: "Nail Art", description: "Custom artwork, chrome, encapsulated details and hand-drawn design.", duration: "from 30 min", from: "₦3,000", category: "Art" },
-  { name: "Classic Pedicure", description: "A restorative pedicure with exfoliation, massage and polish.", duration: "60 min", from: "₦12,000", category: "Pedicure" },
-  { name: "Spa Pedicure", description: "An extended ritual — warm soak, scrub, mask and lower-leg massage.", duration: "90 min", from: "₦20,000", category: "Pedicure" },
-  { name: "Nail Refill", description: "Refresh your existing set with a new colour and finish.", duration: "60 min", from: "₦14,000", category: "Extensions" },
-  { name: "Nail Repair", description: "Discreet single-nail repair to restore your set between visits.", duration: "20 min", from: "₦2,500", category: "Manicure" },
-  { name: "Safe Nail Removal", description: "Gentle removal of gel, acrylic or extensions with cuticle care.", duration: "30 min", from: "₦5,000", category: "Manicure" },
-  { name: "Bridal Nail Package", description: "A private consultation with trial and wedding-day appointment.", duration: "By consultation", from: "₦60,000", category: "Signature" },
-  { name: "Luxury Nail Treatment", description: "Our signature ritual — paraffin, hydration therapy and finish.", duration: "90 min", from: "₦28,000", category: "Signature" },
+  { name: "BIAB Nails", description: "Builder-in-a-bottle overlay that strengthens your natural nail with a flawless, long-wearing finish." },
+  { name: "Acrylic Nails", description: "Sculpted acrylic extensions tailored to your preferred length and shape — bold, precise and made to last." },
+  { name: "Gel-X Extensions", description: "Lightweight, soft-gel tip extensions that feel natural, look glossy and stay pristine for weeks." },
+  { name: "Refills & Repairs", description: "Refresh your existing set — infills, single-nail repairs and colour changes to keep your nails looking new." },
+  { name: "Custom Nail Art", description: "Bespoke hand-painted art, chrome, encapsulated details and design work built around your inspiration." },
 ];
 
 export const reasons = [
-  { title: "Experienced Technicians", body: "Every set is placed by a trained specialist with a discerning eye for shape and proportion." },
-  { title: "Sterilised Tools", body: "Hospital-grade sterilisation. Fresh, sealed implements for every guest." },
-  { title: "Premium Products", body: "We source globally trusted gels, builders and finishes — never compromise brands." },
-  { title: "Luxury Studio", body: "A calm, considered space designed for privacy, quiet and slow moments." },
-  { title: "Long-Lasting Results", body: "Application methodology built for wear — up to three weeks without lifting." },
-  { title: "Effortless Booking", body: "Reserve in under a minute. Confirmations and reminders sent to your phone." },
+  { title: "Exceptional Attention to Detail", body: "Every stroke, curve and finish is considered. We work slowly on purpose — precision is the whole point." },
+  { title: "Premium Nail Products", body: "We work only with globally trusted gels, builders and finishes so your set lasts, wears beautifully and stays kind to your natural nail." },
+  { title: "Comfortable Studio Experience", body: "A calm, private space designed to feel less like a salon appointment and more like an hour returned to you." },
+  { title: "Studio & Home Appointments", body: "Visit the Somolu studio or book a home appointment where available — the same premium care, wherever suits you." },
+  { title: "Personalized Nail Designs", body: "Every set is custom. Share your inspiration and we'll craft a design built around your style, hands and lifestyle." },
+  { title: "Professional Nail Care", body: "Sealed sterile tools, hospital-grade hygiene and trained artistry — the standard nail care in Nigeria deserves." },
 ];
 
 export const testimonials = [
-  { name: "Simi Adebayo", handle: "@simi.a", rating: 5, review: "From the moment I booked to the moment I sat down, the whole process felt seamless. I walked out with the exact set I'd dreamed of — I've never felt more looked-after in a Lagos studio." },
-  { name: "Ngozi Okafor", handle: "@ngozi.ok", rating: 5, review: "Three full weeks and not a single lift. The finish is glassy, the shape is perfect and the studio itself feels like a spa retreat." },
-  { name: "Halima Bello", handle: "@halima_b", rating: 5, review: "Bridal appointment: trial, tweak, wedding-day set — every touchpoint felt considered. My hands in every photo look unreal." },
-  { name: "Yewande Cole", handle: "@yewandecole", rating: 5, review: "I'm precious about hygiene. Watching them unwrap sealed tools in front of me sold me for life. Talent + trust." },
-  { name: "Priscilla Nnamdi", handle: "@priss.n", rating: 5, review: "The chairs, the lighting, the tea — every detail is soft. I book my sessions like therapy now." },
-  { name: "Kemi Sofowora", handle: "@kemi.sof", rating: 5, review: "They actually listened when I said 'shorter, milkier, no bling'. Left with the exact set I'd been failing to describe for years." },
+  { name: "Simi A.", handle: "@simi.a", rating: 5, review: "The attention to detail is unmatched. Ruu took her time to understand exactly what I wanted and the finish was flawless. Easily the calmest, most professional nail appointment I've had in Lagos." },
+  { name: "Ngozi O.", handle: "@ngozi.ok", rating: 5, review: "Three weeks in and my BIAB set still looks the day I got them done. No lifting, no chips. Premium products and premium hands — you can tell." },
+  { name: "Halima B.", handle: "@halima_b", rating: 5, review: "So welcoming from the first message on WhatsApp all the way to leaving the studio. The space is beautiful, the service is thoughtful and my nails are perfect." },
+  { name: "Yewande C.", handle: "@yewandecole", rating: 5, review: "I'm particular about hygiene and everything at Nailedby_Ruu felt clean, sealed and professional. That plus the artistry — I'm not going anywhere else." },
+  { name: "Priscilla N.", handle: "@priss.n", rating: 5, review: "Comfortable is the word. From the chair to the conversation, the whole appointment felt calm. And the nails? Exactly the vibe I sent as inspiration." },
+  { name: "Kemi S.", handle: "@kemi.sof", rating: 5, review: "Ruu recreated my inspo down to the last little detail. Long-lasting, comfortable to wear and beautifully shaped. Booking again already." },
 ];
 
 export const faqs = [
-  { q: "How do I book an appointment?", a: "Reservations are made through our online booking page. Choose your service and preferred time — you'll receive a confirmation by email within moments." },
-  { q: "How long do appointments take?", a: "Most manicures run 45–75 minutes; pedicures 60–90 minutes; extensions and bridal work 90 minutes and above. Exact durations are shown at booking." },
-  { q: "Can I reschedule my appointment?", a: "Yes — you may reschedule at no cost up to 12 hours before your appointment. A rescheduling link is included in your confirmation email." },
-  { q: "Do you accept walk-ins?", a: "We prioritise reservations to protect the calm of the studio. Walk-ins are welcomed only when we have availability — please call ahead." },
-  { q: "How should I prepare for my appointment?", a: "Arrive with clean, dry hands and remove any nail polish if possible. For extensions or bridal work, bring references — we love to see them." },
-  { q: "Where are you located?", a: "Our studio is in Ikeja, Lagos Mainland. Full address and directions are on the Contact page." },
+  { q: "How do I book?", a: "Tap any 'Book Appointment' button, choose a time that works, and you'll be redirected to WhatsApp to finalise your design and deposit." },
+  { q: "How much is the booking deposit?", a: "A ₦10,000 deposit is required to fully secure your appointment. It's paid via WhatsApp after your quote is confirmed and it goes towards your final service fee." },
+  { q: "Can I send my nail inspiration?", a: "Absolutely — inspiration is welcomed and encouraged. Share your reference photos on WhatsApp after booking and we'll craft the design around them." },
+  { q: "How are prices determined?", a: "Pricing depends on your preferred design, length, complexity and finish. You'll receive a personalised quote on WhatsApp once we've seen your inspiration." },
+  { q: "Do you offer home service?", a: "Yes — home appointments are available in select areas. Mention it when you book and we'll confirm availability on WhatsApp." },
+  { q: "How long do appointments take?", a: "Most sets take 90 minutes to 2.5 hours depending on design and technique. We'll give you a time estimate with your quote." },
+  { q: "How should I prepare for my appointment?", a: "Arrive with clean, dry hands. If you're wearing a previous set, mention it when booking so we can add a removal service." },
+  { q: "Can I reschedule my appointment?", a: "Yes — please give us at least 24 hours' notice on WhatsApp and we'll happily move you to the next available slot." },
 ];
 
 export type GalleryItem = {
@@ -113,18 +109,26 @@ export type GalleryItem = {
 };
 
 export const galleryItems: GalleryItem[] = [
-  { id: 1,  category: "Gel",         ratio: "portrait",  alt: "Glossy burgundy almond gel manicure", src: img1 },
-  { id: 2,  category: "Pedicure",    ratio: "portrait",  alt: "Red pedicure with delicate floral art", src: img2 },
-  { id: 3,  category: "Acrylic",     ratio: "tall",      alt: "Chrome copper and tortoise acrylic set", src: img3 },
-  { id: 4,  category: "Nail Art",    ratio: "portrait",  alt: "Custom hand-painted nail art", src: img4 },
-  { id: 5,  category: "French Tips", ratio: "portrait",  alt: "Modern French tip manicure", src: img5 },
-  { id: 6,  category: "Acrylic",     ratio: "portrait",  alt: "Sculpted almond acrylic set", src: img6 },
-  { id: 7,  category: "Gel",         ratio: "tall",      alt: "Long-wear gel colour", src: img7 },
-  { id: 8,  category: "Nail Art",    ratio: "portrait",  alt: "Bespoke nail artistry", src: img8 },
-  { id: 9,  category: "Gel",         ratio: "portrait",  alt: "Signature gel manicure", src: img1 },
-  { id: 10, category: "Pedicure",    ratio: "portrait",  alt: "Red floral pedicure detail", src: img2 },
-  { id: 11, category: "Acrylic",     ratio: "portrait",  alt: "Chrome accent nail set", src: img3 },
-  { id: 12, category: "French Tips", ratio: "portrait",  alt: "Sheer French tips", src: img5 },
+  { id: 1,  category: "Gel",         ratio: "portrait",  alt: "Glossy burgundy almond gel manicure by Nailedby_Ruu", src: img1 },
+  { id: 2,  category: "Pedicure",    ratio: "portrait",  alt: "Luxury red pedicure with delicate floral nail art", src: img2 },
+  { id: 3,  category: "Acrylic",     ratio: "tall",      alt: "Chrome copper and tortoise acrylic nail set", src: img3 },
+  { id: 4,  category: "Nail Art",    ratio: "portrait",  alt: "Custom hand-painted swirl nail art", src: img4 },
+  { id: 5,  category: "French Tips", ratio: "portrait",  alt: "Modern French tip manicure with gold detail", src: img5 },
+  { id: 6,  category: "Acrylic",     ratio: "portrait",  alt: "Sculpted almond acrylic set in nude tones", src: img6 },
+  { id: 7,  category: "Gel",         ratio: "tall",      alt: "Long-wear teal gel with 3D water droplets", src: img7 },
+  { id: 8,  category: "Nail Art",    ratio: "portrait",  alt: "Bespoke luxury nail artistry", src: img8 },
+  { id: 9,  category: "Gel",         ratio: "portrait",  alt: "Signature glossy gel manicure", src: img1 },
+  { id: 10, category: "Pedicure",    ratio: "portrait",  alt: "Luxury pedicure detail", src: img2 },
+  { id: 11, category: "Acrylic",     ratio: "portrait",  alt: "Chrome accent luxury nail set", src: img3 },
+  { id: 12, category: "French Tips", ratio: "portrait",  alt: "Sheer French tips with soft nude base", src: img5 },
 ];
+
+export const bookingSteps = [
+  { n: "01", t: "Book your preferred appointment", b: "Choose a date and time that works for you through our online booking." },
+  { n: "02", t: "Chat with us on WhatsApp", b: "You'll be redirected to WhatsApp so we can continue your booking personally." },
+  { n: "03", t: "Send your nail inspiration", b: "Share your reference photos and any specific ideas for the design you have in mind." },
+  { n: "04", t: "Receive your personalised quote", b: "We'll price your set based on your chosen design, length and finish." },
+  { n: "05", t: "Pay a ₦10,000 deposit", b: "Secure your slot with a deposit — the balance is settled on the day of your appointment." },
+] as const;
 
 export const galleryCategories = ["All", "Acrylic", "Gel", "Nail Art", "Pedicure", "French Tips"] as const;

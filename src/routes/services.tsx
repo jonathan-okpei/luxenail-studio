@@ -4,23 +4,17 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
 import { BookButton } from "@/components/site/BookButton";
-import { services } from "@/lib/site";
+import { services, site, photos } from "@/lib/site";
 
-const groups = [
-  { key: "Manicure",   title: "Manicures",   body: "Care for the natural nail — shaping, cuticle work, colour and long-wear finishes." },
-  { key: "Extensions", title: "Extensions",  body: "Sculpted extensions in acrylic, gel and BIAB, tailored to your desired length and shape." },
-  { key: "Pedicure",   title: "Pedicures",   body: "Restorative pedicures with exfoliation, massage and considered finishing." },
-  { key: "Art",        title: "Nail Art",    body: "Custom artwork, chrome, encapsulated details and hand-drawn design." },
-  { key: "Signature",  title: "Signature",   body: "Our most requested treatments — bridal, luxury rituals and full-day experiences." },
-] as const;
+const serviceImages = [photos.img7, photos.img3, photos.img6, photos.img1, photos.img4];
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Pricing — Luxe Nail Studio · Ikeja, Lagos" },
-      { name: "description", content: "Full menu of manicures, pedicures, acrylic, BIAB, gel extensions, nail art, French tips, bridal and luxury nail treatments at Luxe Nail Studio, Ikeja." },
-      { property: "og:title", content: "Services & Pricing — Luxe Nail Studio" },
-      { property: "og:description", content: "Manicures, pedicures, acrylic, BIAB, gel extensions, nail art, bridal and luxury treatments." },
+      { title: "Services — Nailedby_Ruu · Luxury Nail Studio in Somolu, Lagos" },
+      { name: "description", content: "BIAB, Acrylic, Gel-X extensions, refills and custom nail art at Nailedby_Ruu — a premium nail studio in Somolu, Lagos. Personalised quotes on WhatsApp." },
+      { property: "og:title", content: "Services — Nailedby_Ruu" },
+      { property: "og:description", content: "BIAB, Acrylic, Gel-X, refills and custom nail art in Somolu, Lagos." },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -35,8 +29,8 @@ export const Route = createFileRoute("/services")({
             position: i + 1,
             name: s.name,
             description: s.description,
-            provider: { "@type": "NailSalon", name: "Luxe Nail Studio" },
-            areaServed: "Ikeja, Lagos",
+            provider: { "@type": "NailSalon", name: "Nailedby_Ruu" },
+            areaServed: "Somolu, Lagos",
           })),
         }),
       },
@@ -50,53 +44,50 @@ function ServicesPage() {
     <SiteLayout>
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 pt-10 md:pt-20 pb-16 md:pb-24">
         <div className="fade-up max-w-3xl">
-          <span className="eyebrow">The Treatments</span>
+          <span className="eyebrow">Our Services</span>
           <span className="gold-rule mt-4 mb-7 block" aria-hidden="true" />
           <h1 className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] text-ink">
-            Treatments &amp; pricing.
+            Luxury nails,<br /><em className="not-italic text-gradient">crafted for you.</em>
           </h1>
           <p className="mt-6 max-w-2xl text-xl md:text-2xl leading-relaxed text-espresso/80">
-            A considered menu of manicures, pedicures, extensions and nail artistry. All prices are starting rates — final pricing depends on length, complexity and finish.
+            A focused menu of premium nail services. Every set is custom — built around your inspiration, your lifestyle and the finish you're looking for.
           </p>
         </div>
       </section>
 
-      {groups.map((group, gi) => {
-        const items = services.filter((s) => s.category === group.key);
-        if (items.length === 0) return null;
-        return (
-          <section key={group.key} className="border-t border-border/60">
-            <div className="mx-auto grid max-w-[1400px] gap-10 px-6 py-16 md:grid-cols-12 md:gap-16 md:px-10 md:py-24">
-              <Reveal className="md:col-span-4">
-                <span className="eyebrow">0{gi + 1}</span>
-                <h2 className="mt-4 font-display text-4xl md:text-5xl text-ink">{group.title}</h2>
-                <p className="mt-5 text-lg text-espresso/75 leading-relaxed max-w-sm">{group.body}</p>
+      <section className="border-t border-border/60 bg-porcelain/40">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-24">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s, i) => (
+              <Reveal key={s.name} delay={i * 60}>
+                <article className="group h-full flex flex-col overflow-hidden rounded-[1.75rem] border border-border/60 bg-white/80 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-champagne/60 hover:shadow-[0_30px_60px_-30px_oklch(0.5_0.15_320/0.35)]">
+                  <div className="aspect-[5/4] overflow-hidden">
+                    <img src={serviceImages[i % serviceImages.length]} alt={s.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
+                  </div>
+                  <div className="flex-1 flex flex-col p-8">
+                    <h3 className="font-display text-3xl text-ink">{s.name}</h3>
+                    <p className="mt-4 text-lg leading-relaxed text-espresso/80 flex-1">{s.description}</p>
+                    <div className="mt-6 pt-5 border-t border-border/60">
+                      <BookButton className="w-full">Book This Service</BookButton>
+                    </div>
+                  </div>
+                </article>
               </Reveal>
-              <div className="md:col-span-8">
-                {items.map((s, i) => (
-                  <Reveal key={s.name} delay={i * 40}>
-                    <article className="grid grid-cols-[1fr_auto] items-baseline gap-6 border-b border-border/60 py-8">
-                      <div>
-                        <h3 className="font-display text-2xl md:text-3xl text-ink">{s.name}</h3>
-                        <p className="mt-3 text-base md:text-lg text-espresso/75 leading-relaxed max-w-xl">{s.description}</p>
-                        <p className="mt-4 text-[0.75rem] tracking-[0.2em] uppercase text-espresso/60">{s.duration}</p>
-                      </div>
-                      <p className="font-display text-2xl md:text-3xl text-ink whitespace-nowrap">
-                        <span className="text-[0.65rem] tracking-[0.2em] uppercase text-espresso/60 mr-2 align-middle">From</span>
-                        {s.from}
-                      </p>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      })}
+            ))}
+          </div>
+
+          <Reveal className="mt-16 mx-auto max-w-3xl rounded-[1.75rem] bg-white/90 border border-champagne/40 p-8 md:p-10 text-center shadow-[0_20px_60px_-30px_oklch(0.5_0.15_320/0.3)]">
+            <span className="eyebrow">A note on pricing</span>
+            <p className="mt-4 text-lg md:text-xl leading-relaxed text-espresso/85">
+              {site.pricingNote}
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="border-t border-border/60">
         <div className="mx-auto max-w-[1100px] px-6 md:px-10 py-24 md:py-32 text-center">
-          <SectionHeading eyebrow="Ready?" title="Reserve your seat." align="center" body="Instant confirmation. Rescheduling available up to 12 hours before your visit." />
+          <SectionHeading eyebrow="Ready?" title="Book your appointment." align="center" body="Choose your time, then continue on WhatsApp to share your inspo and confirm your set." />
           <div className="mt-10 flex justify-center gap-4">
             <BookButton>Book Appointment</BookButton>
             <LinkButton to="/contact" variant="outline">Ask a Question</LinkButton>
