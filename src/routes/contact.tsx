@@ -7,10 +7,10 @@ import { site } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Luxe Nail Studio · Ikeja, Lagos" },
-      { name: "description", content: "Visit or reach Luxe Nail Studio in Ikeja, Lagos Mainland. Phone, WhatsApp, Instagram and studio hours." },
-      { property: "og:title", content: "Contact — Luxe Nail Studio" },
-      { property: "og:description", content: "Visit or reach Luxe Nail Studio in Ikeja, Lagos Mainland." },
+      { title: "Contact — Nailedby_Ruu · Somolu, Lagos" },
+      { name: "description", content: "Visit or reach Nailedby_Ruu in Somolu, Lagos. Phone, WhatsApp, Instagram and studio hours." },
+      { property: "og:title", content: "Contact — Nailedby_Ruu" },
+      { property: "og:description", content: "Visit or reach Nailedby_Ruu in Somolu, Lagos." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -122,8 +122,8 @@ function ContactPage() {
 
             <div className="mt-8 rounded-lg overflow-hidden border border-border/60 bg-porcelain/40 aspect-[16/10] relative">
               <iframe
-                title="Luxe Nail Studio location on Google Maps"
-                src="https://www.google.com/maps?q=Ikeja+Lagos+Nigeria&output=embed"
+                title="Nailedby_Ruu location on Google Maps"
+                src="https://www.google.com/maps?q=Somolu+Lagos+Nigeria&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 h-full w-full grayscale-[35%] contrast-[0.95]"

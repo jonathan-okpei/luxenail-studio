@@ -38,7 +38,7 @@ export function Brand({
         <span className={cn("font-display tracking-tight text-ink", s.brand)}>{site.brand}</span>
         {showTagline && (
           <span className={cn("mt-1 uppercase tracking-[0.24em] text-lavender-deep", s.sub)}>
-            Ikeja · Lagos
+            Somolu · Lagos
           </span>
         )}
       </span>

@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const Route = createFileRoute("/booked")({
   head: () => ({
     meta: [
-      { title: "Appointment Reserved — Luxe Nail Studio" },
+      { title: "Appointment Reserved — Nailedby_Ruu" },
       { name: "description", content: "Your appointment has been reserved. Continue on WhatsApp to share your inspiration and complete your booking deposit." },
       { name: "robots", content: "noindex" },
     ],

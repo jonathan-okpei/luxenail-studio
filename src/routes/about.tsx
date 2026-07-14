@@ -9,10 +9,10 @@ import { site, photos, owner } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Luxe Nail Studio · Ikeja, Lagos" },
-      { name: "description", content: "The story behind Luxe Nail Studio — a considered atelier in Ikeja, Lagos built around craft, hygiene and calm." },
-      { property: "og:title", content: "About — Luxe Nail Studio" },
-      { property: "og:description", content: "A considered nail atelier in Ikeja, Lagos built around craft, hygiene and calm." },
+      { title: "About — Nailedby_Ruu · Somolu, Lagos" },
+      { name: "description", content: "The story behind Nailedby_Ruu — a considered atelier in Somolu, Lagos built around craft, hygiene and calm." },
+      { property: "og:title", content: "About — Nailedby_Ruu" },
+      { property: "og:description", content: "A considered nail atelier in Somolu, Lagos built around craft, hygiene and calm." },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -39,7 +39,7 @@ function AboutPage() {
 
         <Reveal className="mt-16 md:mt-24 grid gap-4 md:grid-cols-3">
           <div className="md:col-span-2 aspect-[4/3] overflow-hidden rounded-[2rem] ring-1 ring-champagne/20">
-            <img src={photos.salon4} alt="Inside the Luxe Nail Studio lounge" loading="lazy" className="h-full w-full object-cover" />
+            <img src={photos.salon4} alt="Inside the Nailedby_Ruu lounge" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="grid grid-rows-2 gap-4">
             <div className="overflow-hidden rounded-[1.5rem] ring-1 ring-champagne/20">
