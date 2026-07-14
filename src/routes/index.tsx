@@ -3,7 +3,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LinkButton } from "@/components/site/Button";
-import { services, reasons, testimonials, faqs, site, owner, photos } from "@/lib/site";
+import { services, reasons, testimonials, faqs, site, owner, photos, bookingSteps } from "@/lib/site";
+import { BookButton } from "@/components/site/BookButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,20 +48,16 @@ function HomePage() {
                 Now booking · Ikeja, Lagos
               </span>
               <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.92] tracking-[-0.02em]">
-                <span className="text-ink">A quiet luxury</span><br />
-                <span className="text-gradient italic">for the hands</span><br />
-                <span className="text-ink">you show the world.</span>
+                <span className="text-ink">Luxury Nails,</span><br />
+                <span className="text-gradient italic">Crafted with</span><br />
+                <span className="text-ink">Precision.</span>
               </h1>
               <p className="mt-8 max-w-lg text-base leading-relaxed text-espresso/75">
-                An appointment-only nail atelier in Ikeja, composed for the woman who
-                notices detail. Precise artistry, sealed sterile tools, and an hour
-                of unhurried care — softly, always.
+                Whether you're looking for elegant everyday nails or bold statement designs, Nailedby_Ruu creates premium nail sets with exceptional attention to detail in a calm and welcoming environment.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <LinkButton to="/gallery" variant="outline">View the Gallery</LinkButton>
-                <Link to="/services" className="text-[0.72rem] tracking-[0.22em] uppercase text-ink border-b border-ink/40 pb-1 hover:opacity-70 transition-opacity">
-                  Explore Treatments →
-                </Link>
+                <BookButton>Book Your Appointment</BookButton>
+                <LinkButton to="/gallery" variant="outline">View Our Work</LinkButton>
               </div>
 
               <div className="mt-14 flex items-center gap-8">
@@ -74,9 +71,9 @@ function HomePage() {
                 <div>
                   <div className="flex items-center gap-2 text-champagne">
                     <span className="font-display text-lg leading-none text-ink">5.0</span>
-                    <span className="text-xs text-espresso/70">· 200+ happy guests</span>
+                    <span className="text-xs text-espresso/70">· Loved by our clients</span>
                   </div>
-                  <p className="mt-1 text-xs text-espresso/60">Rated the softest chair in Ikeja.</p>
+                  <p className="mt-1 text-xs text-espresso/60">Premium nails in Somolu, Lagos.</p>
                 </div>
               </div>
             </div>
@@ -93,7 +90,7 @@ function HomePage() {
               {/* Sticker card */}
               <div className="absolute -right-2 bottom-8 md:right-6 md:bottom-2 rounded-2xl border border-champagne/30 bg-white/85 backdrop-blur-md px-4 py-3 shadow-[0_20px_50px_-25px_oklch(0.5_0.15_320/0.4)]">
                 <p className="text-[0.62rem] tracking-[0.22em] uppercase text-lavender-deep">Guest favourite</p>
-                <p className="font-display text-lg text-ink leading-tight mt-0.5">BIAB · from ₦18k</p>
+                 <p className="font-display text-lg text-ink leading-tight mt-0.5">Custom Nail Art</p>
               </div>
               {/* Blob */}
               <div className="absolute -left-6 top-4 h-24 w-24 rounded-full bg-lavender/60 blur-2xl" aria-hidden="true" />
@@ -184,30 +181,68 @@ function HomePage() {
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((s, i) => {
-              const imgs = [photos.img1, photos.img3, photos.img5, photos.img6, photos.img4, photos.img2];
+            {services.map((s, i) => {
+              const imgs = [photos.img7, photos.img3, photos.img6, photos.img1, photos.img4, photos.img2];
               return (
                 <Reveal key={s.name} delay={i * 60}>
                   <article className="group relative h-full flex flex-col overflow-hidden rounded-[1.75rem] border border-border/60 bg-white/70 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_oklch(0.5_0.15_320/0.4)] hover:border-champagne/50">
                     <div className="relative aspect-[5/4] overflow-hidden">
                       <img src={imgs[i]} alt={s.name} className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
-                      <span className="absolute top-4 left-4 rounded-full bg-white/90 backdrop-blur px-3 py-1 text-[0.6rem] tracking-[0.22em] uppercase text-lavender-deep">{s.category}</span>
                     </div>
                     <div className="flex-1 flex flex-col p-6">
                       <h3 className="font-display text-2xl text-ink">{s.name}</h3>
                       <p className="mt-2 text-sm text-espresso/70 leading-relaxed flex-1">{s.description}</p>
-                      <div className="mt-5 flex items-baseline justify-between border-t border-border/60 pt-4">
-                        <span className="text-[0.65rem] tracking-[0.22em] uppercase text-espresso/60">{s.duration}</span>
-                        <span className="font-display text-lg text-ink">
-                          <span className="text-[0.6rem] tracking-[0.22em] uppercase text-espresso/60 mr-1.5">From</span>
-                          {s.from}
-                        </span>
+                      <div className="mt-5 border-t border-border/60 pt-4">
+                        <Link to="/services" className="text-[0.7rem] tracking-[0.2em] uppercase text-lavender-deep hover:text-ink transition-colors">Learn more →</Link>
                       </div>
                     </div>
                   </article>
                 </Reveal>
               );
             })}
+          </div>
+
+          {/* Booking timeline */}
+          <div className="mt-24 md:mt-32">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="eyebrow">How Booking Works</span>
+              <span className="gold-rule mx-auto mt-4 mb-6 block" aria-hidden="true" />
+              <h3 className="font-display text-[clamp(2rem,4.5vw,3.25rem)] leading-tight text-ink">
+                Five simple steps to your <em className="not-italic text-gradient">perfect set.</em>
+              </h3>
+            </div>
+            <ol className="mt-14 grid gap-6 md:grid-cols-5">
+              {bookingSteps.map((s, i) => (
+                <Reveal key={s.n} delay={i * 70}>
+                  <li className="relative h-full rounded-2xl bg-white/80 border border-border/60 p-6 backdrop-blur-sm">
+                    <p className="font-display text-4xl text-champagne">{s.n}</p>
+                    <p className="mt-4 font-display text-lg text-ink leading-tight">{s.t}</p>
+                    <p className="mt-2 text-sm text-espresso/70 leading-relaxed">{s.b}</p>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
+            <div className="mt-10 text-center">
+              <BookButton>Book Your Appointment</BookButton>
+            </div>
+          </div>
+
+          {/* Follow Our Work */}
+          <div className="mt-24 md:mt-32 rounded-[2rem] bg-ink text-ivory p-10 md:p-16 relative overflow-hidden">
+            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-lavender-deep/30 blur-[130px]" aria-hidden="true" />
+            <div className="relative grid gap-10 md:grid-cols-2 items-center">
+              <div>
+                <span className="text-[0.66rem] tracking-[0.28em] uppercase text-champagne">Stay Connected</span>
+                <h3 className="mt-4 font-display text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05]">See Our Latest Nail Transformations</h3>
+                <p className="mt-5 text-ivory/80 leading-relaxed max-w-lg">
+                  Every nail set tells a story. Follow Nailedby_Ruu on Instagram and TikTok for our latest nail transformations, behind-the-scenes moments, trending designs, seasonal inspiration and client appointments.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
+                <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-ivory text-ink px-7 py-3.5 text-[0.72rem] tracking-[0.2em] uppercase hover:bg-champagne transition-colors">Follow on Instagram</a>
+                <a href={site.tiktokUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full border border-ivory/50 text-ivory px-7 py-3.5 text-[0.72rem] tracking-[0.2em] uppercase hover:bg-ivory hover:text-ink transition-colors">Follow on TikTok</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -235,9 +270,7 @@ function HomePage() {
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">{owner.bio}</p>
             <p className="mt-6 text-lg leading-relaxed text-espresso/80 max-w-xl">
-              I built Luxe Nail Studio as the salon I always wished existed — clean, calm, and unapologetically feminine.
-              Whether you're prepping for your wedding day or simply need an hour to yourself, my team and I are here
-              to make it feel like a treat.
+              Every appointment at Nailedby_Ruu is designed to leave you feeling beautiful, relaxed, confident and truly cared for — because your nails deserve the same intention as everything else in your routine.
             </p>
             <p className="mt-8 font-display italic text-2xl text-lavender-deep">{owner.signature}</p>
           </Reveal>
@@ -248,8 +281,8 @@ function HomePage() {
       <section className="border-t border-border/60">
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
           <SectionHeading
-            eyebrow="Why Guests Choose Us"
-            title={<>Six reasons this feels different.</>}
+            eyebrow="Why Choose Nailedby_Ruu"
+            title={<>Six reasons clients keep coming back.</>}
             align="center"
           />
           <div className="mt-16 grid gap-x-12 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
@@ -387,7 +420,7 @@ function HomePage() {
             <LinkButton to="/contact" variant="outline">Contact Studio</LinkButton>
             <LinkButton to="/services">Explore Treatments</LinkButton>
           </div>
-          <p className="mt-6 text-xs text-muted-foreground">Use the pink book button in the corner to reserve your slot.</p>
+          <p className="mt-6 text-xs text-muted-foreground">Use the book button in the corner to reserve your slot.</p>
           <p className="mt-8 text-xs text-muted-foreground">
             {site.address} · {site.phone}
           </p>
